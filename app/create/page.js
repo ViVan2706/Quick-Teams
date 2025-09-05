@@ -63,23 +63,17 @@ export default function TeamsPage() {
     return { userVectors: vectors, userNorms: norms };
   }, [rawUsers, vocabIndex, vocab.length]);
 
-  /* ---------------- Create team ---------------- */
-  const createTeam = (formData) => {
-    const newTeam = {
-      id: Date.now().toString(),
-      ...formData,
-      requirements: formData.skills.map((s) => normalizeSkill(s, SYNONYMS)),
-      members: ["u000"], // current user placeholder
-    };
-    setTeams((t) => [...t, newTeam]);
-    setSelectedTeam(newTeam);
+  /* ---------------- Create team (state update after DB save) ---------------- */
+  const createTeam = (team) => {
+    setTeams((t) => [...t, team]);
+    setSelectedTeam(team);
   };
 
   /* ---------------- Suggest users ---------------- */
   const suggestUsers = (team, topK = 8) => {
-    if (!team || !team.requirements) return [];
+    if (!team || !team.skill_req) return [];
 
-    const teamIndices = team.requirements
+    const teamIndices = team.skill_req
       .map((s) => vocabIndex[s])
       .filter((idx) => idx !== undefined);
 
@@ -90,7 +84,7 @@ export default function TeamsPage() {
 
     for (let i = 0; i < rawUsers.length; i++) {
       const uid = rawUsers[i].id;
-      if (team.members.includes(uid)) continue;
+      if (team.user_joined.includes(uid)) continue;
 
       let dot = 0;
       const vec = userVectors[i];
@@ -117,11 +111,11 @@ export default function TeamsPage() {
       {selectedTeam && (
         <div className="flex-1 max-w-5xl mx-auto w-full mt-8">
           <h2 className="text-2xl font-bold text-[#096B68]">
-            {selectedTeam.teamName}
+            {selectedTeam.team_name}
           </h2>
           <p className="text-gray-700 mb-2">
             <span className="font-semibold">Purpose:</span>{" "}
-            {selectedTeam.purpose}
+            {selectedTeam.team_purpose}
           </p>
           <p className="text-gray-700 mb-2">
             <span className="font-semibold">Timeline:</span>{" "}
@@ -129,7 +123,7 @@ export default function TeamsPage() {
           </p>
           <p className="text-gray-700 mb-2">
             <span className="font-semibold">Max Size:</span>{" "}
-            {selectedTeam.maxSize || "Not specified"}
+            {selectedTeam.team_size || "Not specified"}
           </p>
           <p className="text-gray-700 mb-4">{selectedTeam.description}</p>
 
@@ -147,7 +141,7 @@ function CreateTeamForm({ onCreate }) {
     purpose: "",
     description: "",
     timeline: "",
-    maxSize: "",
+    team_size: "",
     skills: [],
     skillInput: "",
   });
@@ -167,9 +161,34 @@ function CreateTeamForm({ onCreate }) {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onCreate(formData);
+
+    const payload = {
+      user_id: "u101", // logged-in user id (replace later)
+      team_name: formData.teamName,
+      team_purpose: formData.purpose,
+      description: formData.description,
+      team_size: Number(formData.team_size || 0),
+      skill_req: formData.skills,
+      user_joined: [],
+      status: "pending",
+      timeline: formData.timeline,
+    };
+
+    const res = await fetch("/api/actions", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+
+    if (res.ok) {
+      const saved = await res.json();
+      console.log("Saved successfully!", saved);
+      onCreate(saved); // add to local state
+    } else {
+      console.error("Failed to save:", await res.text());
+    }
   };
 
   return (
@@ -196,37 +215,36 @@ function CreateTeamForm({ onCreate }) {
       </div>
 
       {/* Purpose */}
-      <div>
+      <div className="mb-4">
         <label className="block text-[#096B68] font-semibold mb-1">
-            Team Purpose *
+          Team Purpose *
         </label>
         <select
-            name="purpose"
-            value={formData.purpose}
-            onChange={handleChange}
-            className="w-full px-4 py-2 rounded-lg border border-[#90D1CA] bg-[#FFFBDE] text-black focus:outline-none focus:ring-2 focus:ring-[#129990]"
-            required
+          name="purpose"
+          value={formData.purpose}
+          onChange={handleChange}
+          className="w-full px-4 py-2 rounded-lg border border-[#90D1CA] bg-[#FFFBDE] text-black focus:outline-none focus:ring-2 focus:ring-[#129990]"
+          required
         >
-            <option value="" disabled>
+          <option value="" disabled>
             Select a purpose
-            </option>
-            <option value="Hackathon">Hackathon</option>
-            <option value="College Project">College/School Project</option>
-            <option value="Startup">Startup / Entrepreneurship</option>
-            <option value="Research Project">Research / Innovation</option>
-            <option value="Sports Tournament">Sports / E-sports</option>
-            <option value="Volunteer Work">Volunteer / NGO Work</option>
-            <option value="Creative Collaboration">Creative Collaboration</option>
-            <option value="Community Activity">Community / Club Activity</option>
-            <option value="Workshop / Training">Workshop / Training</option>
-            <option value="Coding Competition">Coding / Algorithm Competition</option>
-            <option value="Art / Music Project">Art / Music Project</option>
-            <option value="Event Organization">Event Organization</option>
-            <option value="Social Campaign">Social Campaign / Awareness Drive</option>
-            <option value="Product Development">Product / Prototype Development</option>
+          </option>
+          <option value="Hackathon">Hackathon</option>
+          <option value="College Project">College/School Project</option>
+          <option value="Startup">Startup / Entrepreneurship</option>
+          <option value="Research Project">Research / Innovation</option>
+          <option value="Sports Tournament">Sports / E-sports</option>
+          <option value="Volunteer Work">Volunteer / NGO Work</option>
+          <option value="Creative Collaboration">Creative Collaboration</option>
+          <option value="Community Activity">Community / Club Activity</option>
+          <option value="Workshop / Training">Workshop / Training</option>
+          <option value="Coding Competition">Coding / Algorithm Competition</option>
+          <option value="Art / Music Project">Art / Music Project</option>
+          <option value="Event Organization">Event Organization</option>
+          <option value="Social Campaign">Social Campaign / Awareness Drive</option>
+          <option value="Product Development">Product / Prototype Development</option>
         </select>
-        </div>
-
+      </div>
 
       {/* Description */}
       <div className="mb-4">
@@ -265,8 +283,8 @@ function CreateTeamForm({ onCreate }) {
           </label>
           <input
             type="number"
-            name="maxSize"
-            value={formData.maxSize}
+            name="team_size"
+            value={formData.team_size}
             onChange={handleChange}
             placeholder="6"
             className="w-full px-4 py-2 rounded-lg border border-[#90D1CA] bg-[#FFFBDE] text-black"
@@ -275,54 +293,53 @@ function CreateTeamForm({ onCreate }) {
       </div>
 
       {/* Skills */}
-        <div className="mb-6">
+      <div className="mb-6">
         <label className="block text-[#096B68] font-semibold mb-1">
-            Skills Required *
+          Skills Required *
         </label>
 
-        {/* Input + Add Button */}
         <div className="flex gap-2">
-            <input
+          <input
             type="text"
             name="skillInput"
             value={formData.skillInput}
             onChange={handleChange}
             placeholder="React, Node, AI..."
             className="flex-1 px-4 py-2 rounded-lg border border-[#90D1CA] bg-[#FFFBDE] text-black"
-            />
-            <button
+          />
+          <button
             type="button"
             onClick={handleAddSkill}
             className="p-2 bg-[#129990] text-white rounded-lg"
-            >
+          >
             <Plus size={18} />
-            </button>
+          </button>
         </div>
 
         {/* Display Added Skills */}
         <div className="flex gap-2 mt-2 flex-wrap">
-            {formData.skills.map((skill, index) => (
+          {formData.skills.map((skill, index) => (
             <span
-                key={index}
-                className="flex items-center gap-1 px-3 py-1 bg-[#90D1CA] text-[#096B68] rounded-full text-sm font-medium"
+              key={index}
+              className="flex items-center gap-1 px-3 py-1 bg-[#90D1CA] text-[#096B68] rounded-full text-sm font-medium"
             >
-                {skill}
-                <button
+              {skill}
+              <button
                 type="button"
                 onClick={() =>
-                    setFormData((prev) => ({
+                  setFormData((prev) => ({
                     ...prev,
                     skills: prev.skills.filter((_, i) => i !== index),
-                    }))
+                  }))
                 }
                 className="text-[#129990] hover:text-black font-bold"
-                >
+              >
                 ×
-                </button>
+              </button>
             </span>
-            ))}
+          ))}
         </div>
-        </div>
+      </div>
 
       <button
         type="submit"
