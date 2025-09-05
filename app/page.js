@@ -1,15 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import Header from "./components/header";
-import Sidebar from "./components/left-sidebar";
-import ChatSidebar from "./components/right-sidebar";
 import UserCard from "./components/cards/UserCard";
 
 export default function HomePage() {
-  const [showSidebar, setShowSidebar] = useState(false);
-  const [showChat, setShowChat] = useState(false);
-
   const users = [
     {
       name: "Rahul Sharma",
@@ -89,41 +83,24 @@ export default function HomePage() {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-[#FFFBDE]">
-      {/* Header */}
-      <Header
-        onToggleSidebar={() => setShowSidebar(!showSidebar)}
-        onToggleChat={() => setShowChat(!showChat)}
-      />
+    <>
+      <h1 className="text-2xl font-bold text-[#096B68] mb-4">
+        Welcome to Quick Teams
+      </h1>
+      <p className="mb-6 text-[#129990]">
+        Build or find your hackathon / project teammates here 🚀
+      </p>
 
-      <div className="flex flex-1 relative">
-        {/* Left Sidebar */}
-        {showSidebar && <Sidebar />}
-
-        {/* Main Content */}
-        <main className="flex-1 p-6 overflow-y-auto">
-          <h1 className="text-2xl font-bold text-[#096B68] mb-4">
-            Welcome to Quick Teams
-          </h1>
-          <p className="mb-6 text-[#129990]">
-            Build or find your hackathon / project teammates here 🚀
-          </p>
-
-          {/* User Card Deck */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {visibleUsers.map((user, index) => (
-              <UserCard
-                key={index}
-                {...user}
-                onReject={() => handleReject(index)}
-              />
-            ))}
-          </div>
-        </main>
-
-        {/* Right Sidebar (Chat) */}
-        {showChat && <ChatSidebar onClose={() => setShowChat(false)} />}
+      {/* User Card Deck */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {visibleUsers.map((user, index) => (
+          <UserCard
+            key={index}
+            {...user}
+            onReject={() => handleReject(index)}
+          />
+        ))}
       </div>
-    </div>
+    </>
   );
 }

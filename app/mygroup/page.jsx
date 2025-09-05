@@ -38,7 +38,7 @@ export default function MyGroupsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#FFFBDE] p-4 sm:p-6">
+    <div className="min-h-screen bg-[#FFFBDE] p-4 sm:p-6 mt-10">
       {/* Page Title */}
       <h1 className="text-3xl font-bold text-center text-[#096B68] mb-2">
         My Teams

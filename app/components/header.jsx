@@ -30,7 +30,7 @@ export default function Header({ onToggleSidebar, onToggleChat }) {
           Home
         </Link>
         <Link
-          href="/groups"
+          href="/mygroup"
           className="text-[#129990] font-medium hover:text-[#096B68] transition"
         >
           My Groups

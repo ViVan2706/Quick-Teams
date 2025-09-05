@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import { PlusCircle, Search } from "lucide-react";
 
 export default function Sidebar() {
@@ -16,13 +16,15 @@ export default function Sidebar() {
 
       {/* Create + Find Cards */}
       <div className="space-y-4">
-        <button className="w-full flex flex-col items-start gap-1 px-4 py-3 rounded-lg border border-[#90D1CA] hover:bg-[#90D1CA]/20 transition">
-          <div className="flex items-center gap-2 text-[#096B68] font-medium">
-            <PlusCircle size={18} />
-            Create a Team
-          </div>
-          <span className="text-xs text-[#129990]">Start your own project</span>
-        </button>
+        <Link href='/create'>
+          <button className="w-full flex flex-col items-start gap-1 px-4 py-3 rounded-lg border border-[#90D1CA] hover:bg-[#90D1CA]/20 transition">
+            <div className="flex items-center gap-2 text-[#096B68] font-medium">
+              <PlusCircle size={18} />
+              Create a Team
+            </div>
+            <span className="text-xs text-[#129990]">Start your own project</span>
+          </button>
+        </Link>
 
         <button className="w-full flex flex-col items-start gap-1 px-4 py-3 rounded-lg border border-[#129990] hover:bg-[#129990]/20 transition">
           <div className="flex items-center gap-2 text-[#096B68] font-medium">
