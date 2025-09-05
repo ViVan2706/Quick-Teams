@@ -1,8 +1,16 @@
-import { MessageCircle, X } from "lucide-react";
+import { MessageCircle, X, Check } from "lucide-react";
 
 export default function UserCard({ name, profile, bio, techstack = [], onReject }) {
   return (
-    <div className="bg-[#FFFBDE] shadow-md rounded-2xl p-6 border border-[#90D1CA] w-full">
+    <div className="relative bg-[#FFFBDE] shadow-md rounded-2xl p-6 border border-[#90D1CA] w-full">
+      {/* ❌ Cross Button (top-right) */}
+      <button
+        onClick={onReject}
+        className="absolute top-3 right-3 text-[#90D1CA] hover:text-[#096B68] transition"
+      >
+        <X size={20} />
+      </button>
+
       {/* Top: Profile + Name */}
       <div className="flex items-center gap-3 mb-3">
         <img
@@ -33,11 +41,8 @@ export default function UserCard({ name, profile, bio, techstack = [], onReject 
         <button className="flex items-center gap-1 px-4 py-2 bg-[#129990] text-white text-sm font-medium rounded-xl hover:bg-[#096B68] transition">
           <MessageCircle size={16} /> Chat
         </button>
-        <button
-          onClick={onReject}
-          className="flex items-center gap-1 px-4 py-2 bg-red-500 text-white text-sm font-medium rounded-xl hover:bg-red-600 transition"
-        >
-          <X size={16} /> Reject
+        <button className="flex items-center gap-1 px-4 py-2 bg-[#129990] text-white text-sm font-medium rounded-xl hover:bg-[#096B68] transition">
+          <Check size={16} /> Request
         </button>
       </div>
     </div>
