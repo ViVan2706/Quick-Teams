@@ -1,0 +1,164 @@
+{"users":[
+  {
+    "uid": "u001",
+    "email": "alex.johnson@example.com",
+    "name": "Alex Johnson",
+    "role": "Developer",
+    "skills": ["React", "Node.js", "Firebase"],
+    "gender": "Male"
+  },
+  {
+    "uid": "u002",
+    "email": "sophia.martin@example.com",
+    "name": "Sophia Martin",
+    "role": "Designer",
+    "skills": ["UI/UX", "Figma", "Illustrator"],
+    "gender": "Female"
+  },
+  {
+    "uid": "u003",
+    "email": "liam.wilson@example.com",
+    "name": "Liam Wilson",
+    "role": "Project Manager",
+    "skills": ["Agile", "Scrum", "Leadership"],
+    "gender": "Male"
+  },
+  {
+    "uid": "u004",
+    "email": "emma.davis@example.com",
+    "name": "Emma Davis",
+    "role": "Data Scientist",
+    "skills": ["Python", "Pandas", "Machine Learning"],
+    "gender": "Female"
+  },
+  {
+    "uid": "u005",
+    "email": "mason.brown@example.com",
+    "name": "Mason Brown",
+    "role": "Backend Engineer",
+    "skills": ["Java", "Spring", "SQL"],
+    "gender": "Male"
+  },
+  {
+    "uid": "u006",
+    "email": "olivia.thomas@example.com",
+    "name": "Olivia Thomas",
+    "role": "Frontend Developer",
+    "skills": ["HTML", "CSS", "JavaScript"],
+    "gender": "Female"
+  },
+  {
+    "uid": "u007",
+    "email": "ethan.garcia@example.com",
+    "name": "Ethan Garcia",
+    "role": "QA Tester",
+    "skills": ["Cypress", "Jest", "Manual Testing"],
+    "gender": "Male"
+  },
+  {
+    "uid": "u008",
+    "email": "ava.martinez@example.com",
+    "name": "Ava Martinez",
+    "role": "Researcher",
+    "skills": ["AI", "NLP", "Data Analysis"],
+    "gender": "Female"
+  },
+  {
+    "uid": "u009",
+    "email": "noah.rodriguez@example.com",
+    "name": "Noah Rodriguez",
+    "role": "Cloud Engineer",
+    "skills": ["AWS", "Docker", "Kubernetes"],
+    "gender": "Male"
+  },
+  {
+    "uid": "u010",
+    "email": "isabella.lee@example.com",
+    "name": "Isabella Lee",
+    "role": "Mobile Developer",
+    "skills": ["Flutter", "React Native", "iOS"],
+    "gender": "Female"
+  },
+  {
+    "uid": "u011",
+    "email": "james.walker@example.com",
+    "name": "James Walker",
+    "role": "Full Stack Developer",
+    "skills": ["Angular", "Node.js", "MongoDB"],
+    "gender": "Male"
+  },
+  {
+    "uid": "u012",
+    "email": "mia.harris@example.com",
+    "name": "Mia Harris",
+    "role": "Business Analyst",
+    "skills": ["Excel", "SQL", "Stakeholder Management"],
+    "gender": "Female"
+  },
+  {
+    "uid": "u013",
+    "email": "benjamin.white@example.com",
+    "name": "Benjamin White",
+    "role": "Game Developer",
+    "skills": ["Unity", "C#", "3D Modeling"],
+    "gender": "Male"
+  },
+  {
+    "uid": "u014",
+    "email": "amelia.clark@example.com",
+    "name": "Amelia Clark",
+    "role": "Product Manager",
+    "skills": ["Roadmaps", "User Research", "Prioritization"],
+    "gender": "Female"
+  },
+  {
+    "uid": "u015",
+    "email": "lucas.lewis@example.com",
+    "name": "Lucas Lewis",
+    "role": "DevOps Engineer",
+    "skills": ["CI/CD", "Terraform", "Monitoring"],
+    "gender": "Male"
+  },
+  {
+    "uid": "u016",
+    "email": "harper.robinson@example.com",
+    "name": "Harper Robinson",
+    "role": "Content Writer",
+    "skills": ["SEO", "Copywriting", "Editing"],
+    "gender": "Female"
+  },
+  {
+    "uid": "u017",
+    "email": "elijah.king@example.com",
+    "name": "Elijah King",
+    "role": "Cybersecurity Analyst",
+    "skills": ["Pen Testing", "Encryption", "Network Security"],
+    "gender": "Male"
+  },
+  {
+    "uid": "u018",
+    "email": "charlotte.wright@example.com",
+    "name": "Charlotte Wright",
+    "role": "AI Engineer",
+    "skills": ["Deep Learning", "TensorFlow", "PyTorch"],
+    "gender": "Female"
+  },
+  {
+    "uid": "u019",
+    "email": "henry.lopez@example.com",
+    "name": "Henry Lopez",
+    "role": "Data Engineer",
+    "skills": ["BigQuery", "ETL", "Spark"],
+    "gender": "Male"
+  },
+  {
+    "uid": "u020",
+    "email": "ella.hall@example.com",
+    "name": "Ella Hall",
+    "role": "Marketing Specialist",
+    "skills": ["Ads", "Social Media", "Branding"],
+    "gender": "Female"
+  }
+ 
+]
+}
