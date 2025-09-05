@@ -1,204 +1,135 @@
 {
   "users": [
-    {
-      "uid": "u001",
-      "email": "alex.johnson@example.com",
-      "name": "Alex Johnson",
-      "role": "Developer",
-      "skills": ["React", "Node.js", "Firebase"],
-      "gender": "Male",
-      "bio": "Full-stack developer passionate about building scalable web apps with React and Firebase.",
-      "profile": "https://i.pravatar.cc/150?u=u001"
+  {
+    "name": "Rahul Sharma",
+    "profile": "https://i.pravatar.cc/150?img=12",
+    "bio": "Passionate frontend developer, looking to join a hackathon team.",
+    "techstack": ["React", "Node.js", "TailwindCSS"],
+    "labels": {
+      "Role": ["Innovator", "Leader"],
+      "Skills": ["Technical", "Creative"],
+      "Work Style": ["Planner", "Risk-taker"],
+      "Motivation": ["Achiever", "Impact-driven"]
     },
-    {
-      "uid": "u002",
-      "email": "sophia.martin@example.com",
-      "name": "Sophia Martin",
-      "role": "Designer",
-      "skills": ["UI/UX", "Figma", "Illustrator"],
-      "gender": "Female",
-      "bio": "Creative UI/UX designer who loves turning ideas into engaging digital experiences.",
-      "profile": "https://i.pravatar.cc/150?u=u002"
+    "hobbies": ["Cricket", "Photography", "Traveling"]
+  },
+  {
+    "name": "Ananya Verma",
+    "profile": "https://i.pravatar.cc/150?img=13",
+    "bio": "UI/UX enthusiast with a love for design sprints.",
+    "techstack": ["Figma", "AdobeXD", "CSS"],
+    "labels": {
+      "Role": ["Supporter", "Communicator"],
+      "Skills": ["Creative"],
+      "Work Style": ["Detail-oriented"],
+      "Motivation": ["Collaborator", "Learner"]
     },
-    {
-      "uid": "u003",
-      "email": "liam.wilson@example.com",
-      "name": "Liam Wilson",
-      "role": "Project Manager",
-      "skills": ["Agile", "Scrum", "Leadership"],
-      "gender": "Male",
-      "bio": "Experienced project manager skilled in Agile and Scrum, driving projects to success.",
-      "profile": "https://i.pravatar.cc/150?u=u003"
+    "hobbies": ["Drawing", "Music", "Design blogs"]
+  },
+  {
+    "name": "Rohit Singh",
+    "profile": "https://i.pravatar.cc/150?img=14",
+    "bio": "Backend specialist focusing on scalable APIs.",
+    "techstack": ["Node.js", "Express", "MongoDB"],
+    "labels": {
+      "Role": ["Executor", "Analyzer"],
+      "Skills": ["Technical"],
+      "Work Style": ["Big-picture thinker"],
+      "Motivation": ["Career-focused"]
     },
-    {
-      "uid": "u004",
-      "email": "emma.davis@example.com",
-      "name": "Emma Davis",
-      "role": "Data Scientist",
-      "skills": ["Python", "Pandas", "Machine Learning"],
-      "gender": "Female",
-      "bio": "Data scientist who enjoys solving problems with Python and machine learning models.",
-      "profile": "https://i.pravatar.cc/150?u=u004"
+    "hobbies": ["Coding contests", "Football"]
+  },
+  {
+    "name": "Sneha Gupta",
+    "profile": "https://i.pravatar.cc/150?img=15",
+    "bio": "Fullstack dev exploring AI integration.",
+    "techstack": ["React", "Python", "TensorFlow"],
+    "labels": {
+      "Role": ["Innovator"],
+      "Skills": ["Technical", "Researcher"],
+      "Work Style": ["Improviser"],
+      "Motivation": ["Learner", "Impact-driven"]
     },
-    {
-      "uid": "u005",
-      "email": "mason.brown@example.com",
-      "name": "Mason Brown",
-      "role": "Backend Engineer",
-      "skills": ["Java", "Spring", "SQL"],
-      "gender": "Male",
-      "bio": "Backend engineer focused on building reliable APIs and database-driven systems.",
-      "profile": "https://i.pravatar.cc/150?u=u005"
+    "hobbies": ["Badminton", "Cooking", "Movies"]
+  },
+  {
+    "name": "Vikram Yadav",
+    "profile": "https://i.pravatar.cc/150?img=16",
+    "bio": "Cloud computing and DevOps enthusiast.",
+    "techstack": ["AWS", "Docker", "Kubernetes"],
+    "labels": {
+      "Role": ["Analyzer", "Executor"],
+      "Skills": ["Technical", "Operations"],
+      "Work Style": ["Planner"],
+      "Motivation": ["Achiever"]
     },
-    {
-      "uid": "u006",
-      "email": "olivia.thomas@example.com",
-      "name": "Olivia Thomas",
-      "role": "Frontend Developer",
-      "skills": ["HTML", "CSS", "JavaScript"],
-      "gender": "Female",
-      "bio": "Frontend developer who crafts responsive, accessible, and user-friendly interfaces.",
-      "profile": "https://i.pravatar.cc/150?u=u006"
+    "hobbies": ["Gaming", "Traveling"]
+  },
+  {
+    "name": "Neha Patel",
+    "profile": "https://i.pravatar.cc/150?img=17",
+    "bio": "Frontend wizard who loves animations.",
+    "techstack": ["React", "GSAP", "Framer Motion"],
+    "labels": {
+      "Role": ["Creative", "Supporter"],
+      "Skills": ["Creative", "Technical"],
+      "Work Style": ["Improviser"],
+      "Motivation": ["Collaborator"]
     },
-    {
-      "uid": "u007",
-      "email": "ethan.garcia@example.com",
-      "name": "Ethan Garcia",
-      "role": "QA Tester",
-      "skills": ["Cypress", "Jest", "Manual Testing"],
-      "gender": "Male",
-      "bio": "Quality assurance tester ensuring smooth, bug-free user experiences.",
-      "profile": "https://i.pravatar.cc/150?u=u007"
+    "hobbies": ["Dance", "Painting"]
+  },
+  {
+    "name": "Arjun Mehta",
+    "profile": "https://i.pravatar.cc/150?img=18",
+    "bio": "ML engineer passionate about data-driven solutions.",
+    "techstack": ["Python", "Pandas", "Scikit-learn"],
+    "labels": {
+      "Role": ["Analyzer"],
+      "Skills": ["Technical", "Researcher"],
+      "Work Style": ["Detail-oriented"],
+      "Motivation": ["Learner"]
     },
-    {
-      "uid": "u008",
-      "email": "ava.martinez@example.com",
-      "name": "Ava Martinez",
-      "role": "Researcher",
-      "skills": ["AI", "NLP", "Data Analysis"],
-      "gender": "Female",
-      "bio": "AI researcher exploring natural language processing and data-driven insights.",
-      "profile": "https://i.pravatar.cc/150?u=u008"
+    "hobbies": ["Chess", "Running"]
+  },
+  {
+    "name": "Ishita Roy",
+    "profile": "https://i.pravatar.cc/150?img=19",
+    "bio": "Game developer with a knack for Unity projects.",
+    "techstack": ["Unity", "C#", "Blender"],
+    "labels": {
+      "Role": ["Innovator", "Leader"],
+      "Skills": ["Creative", "Technical"],
+      "Work Style": ["Improviser"],
+      "Motivation": ["Achiever"]
     },
-    {
-      "uid": "u009",
-      "email": "noah.rodriguez@example.com",
-      "name": "Noah Rodriguez",
-      "role": "Cloud Engineer",
-      "skills": ["AWS", "Docker", "Kubernetes"],
-      "gender": "Male",
-      "bio": "Cloud engineer passionate about deploying scalable apps with AWS and Kubernetes.",
-      "profile": "https://i.pravatar.cc/150?u=u009"
+    "hobbies": ["Gaming", "Story writing"]
+  },
+  {
+    "name": "Karan Malhotra",
+    "profile": "https://i.pravatar.cc/150?img=20",
+    "bio": "Cybersecurity researcher and ethical hacker.",
+    "techstack": ["Python", "Metasploit", "Wireshark"],
+    "labels": {
+      "Role": ["Executor"],
+      "Skills": ["Technical", "Researcher"],
+      "Work Style": ["Safe-player"],
+      "Motivation": ["Career-focused"]
     },
-    {
-      "uid": "u010",
-      "email": "isabella.lee@example.com",
-      "name": "Isabella Lee",
-      "role": "Mobile Developer",
-      "skills": ["Flutter", "React Native", "iOS"],
-      "gender": "Female",
-      "bio": "Mobile developer building cross-platform apps using Flutter and React Native.",
-      "profile": "https://i.pravatar.cc/150?u=u010"
+    "hobbies": ["Hacking challenges", "Motorcycling"]
+  },
+  {
+    "name": "Priya Nair",
+    "profile": "https://i.pravatar.cc/150?img=21",
+    "bio": "Data analyst who enjoys uncovering insights.",
+    "techstack": ["SQL", "Excel", "Tableau"],
+    "labels": {
+      "Role": ["Analyzer", "Supporter"],
+      "Skills": ["Researcher", "Business"],
+      "Work Style": ["Planner"],
+      "Motivation": ["Impact-driven"]
     },
-    {
-      "uid": "u011",
-      "email": "james.walker@example.com",
-      "name": "James Walker",
-      "role": "Full Stack Developer",
-      "skills": ["Angular", "Node.js", "MongoDB"],
-      "gender": "Male",
-      "bio": "Full stack developer with expertise in Angular and MongoDB for modern apps.",
-      "profile": "https://i.pravatar.cc/150?u=u011"
-    },
-    {
-      "uid": "u012",
-      "email": "mia.harris@example.com",
-      "name": "Mia Harris",
-      "role": "Business Analyst",
-      "skills": ["Excel", "SQL", "Stakeholder Management"],
-      "gender": "Female",
-      "bio": "Business analyst skilled at gathering requirements and driving data insights.",
-      "profile": "https://i.pravatar.cc/150?u=u012"
-    },
-    {
-      "uid": "u013",
-      "email": "benjamin.white@example.com",
-      "name": "Benjamin White",
-      "role": "Game Developer",
-      "skills": ["Unity", "C#", "3D Modeling"],
-      "gender": "Male",
-      "bio": "Game developer passionate about immersive 3D experiences with Unity.",
-      "profile": "https://i.pravatar.cc/150?u=u013"
-    },
-    {
-      "uid": "u014",
-      "email": "amelia.clark@example.com",
-      "name": "Amelia Clark",
-      "role": "Product Manager",
-      "skills": ["Roadmaps", "User Research", "Prioritization"],
-      "gender": "Female",
-      "bio": "Product manager focusing on user research and building impactful roadmaps.",
-      "profile": "https://i.pravatar.cc/150?u=u014"
-    },
-    {
-      "uid": "u015",
-      "email": "lucas.lewis@example.com",
-      "name": "Lucas Lewis",
-      "role": "DevOps Engineer",
-      "skills": ["CI/CD", "Terraform", "Monitoring"],
-      "gender": "Male",
-      "bio": "DevOps engineer who automates deployments and ensures system reliability.",
-      "profile": "https://i.pravatar.cc/150?u=u015"
-    },
-    {
-      "uid": "u016",
-      "email": "harper.robinson@example.com",
-      "name": "Harper Robinson",
-      "role": "Content Writer",
-      "skills": ["SEO", "Copywriting", "Editing"],
-      "gender": "Female",
-      "bio": "Content writer who creates engaging, SEO-friendly copy for digital platforms.",
-      "profile": "https://i.pravatar.cc/150?u=u016"
-    },
-    {
-      "uid": "u017",
-      "email": "elijah.king@example.com",
-      "name": "Elijah King",
-      "role": "Cybersecurity Analyst",
-      "skills": ["Pen Testing", "Encryption", "Network Security"],
-      "gender": "Male",
-      "bio": "Cybersecurity analyst protecting systems through penetration testing and security audits.",
-      "profile": "https://i.pravatar.cc/150?u=u017"
-    },
-    {
-      "uid": "u018",
-      "email": "charlotte.wright@example.com",
-      "name": "Charlotte Wright",
-      "role": "AI Engineer",
-      "skills": ["Deep Learning", "TensorFlow", "PyTorch"],
-      "gender": "Female",
-      "bio": "AI engineer building intelligent solutions using TensorFlow and PyTorch.",
-      "profile": "https://i.pravatar.cc/150?u=u018"
-    },
-    {
-      "uid": "u019",
-      "email": "henry.lopez@example.com",
-      "name": "Henry Lopez",
-      "role": "Data Engineer",
-      "skills": ["BigQuery", "ETL", "Spark"],
-      "gender": "Male",
-      "bio": "Data engineer who designs pipelines and optimizes large-scale data flows.",
-      "profile": "https://i.pravatar.cc/150?u=u019"
-    },
-    {
-      "uid": "u020",
-      "email": "ella.hall@example.com",
-      "name": "Ella Hall",
-      "role": "Marketing Specialist",
-      "skills": ["Ads", "Social Media", "Branding"],
-      "gender": "Female",
-      "bio": "Marketing specialist driving brand growth through ads and social media strategy.",
-      "profile": "https://i.pravatar.cc/150?u=u020"
-    }
-  ]
+    "hobbies": ["Reading", "Yoga"]
+  }
+]
+
 }
