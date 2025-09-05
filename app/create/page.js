@@ -134,13 +134,6 @@ export default function TeamsPage() {
           <p className="text-gray-700 mb-4">{selectedTeam.description}</p>
 
           <SuggestedUsers team={selectedTeam} suggestUsers={suggestUsers} />
-
-          <button
-            className="mt-6 px-4 py-2 bg-gray-200 rounded-lg"
-            onClick={() => setSelectedTeam(null)}
-          >
-            Create Another
-          </button>
         </div>
       )}
     </div>
@@ -203,20 +196,37 @@ function CreateTeamForm({ onCreate }) {
       </div>
 
       {/* Purpose */}
-      <div className="mb-4">
+      <div>
         <label className="block text-[#096B68] font-semibold mb-1">
-          Team Purpose *
+            Team Purpose *
         </label>
-        <input
-          type="text"
-          name="purpose"
-          value={formData.purpose}
-          onChange={handleChange}
-          placeholder="Hackathon, Startup, Research Project..."
-          className="w-full px-4 py-2 rounded-lg border border-[#90D1CA] bg-[#FFFBDE] text-black"
-          required
-        />
-      </div>
+        <select
+            name="purpose"
+            value={formData.purpose}
+            onChange={handleChange}
+            className="w-full px-4 py-2 rounded-lg border border-[#90D1CA] bg-[#FFFBDE] text-black focus:outline-none focus:ring-2 focus:ring-[#129990]"
+            required
+        >
+            <option value="" disabled>
+            Select a purpose
+            </option>
+            <option value="Hackathon">Hackathon</option>
+            <option value="College Project">College/School Project</option>
+            <option value="Startup">Startup / Entrepreneurship</option>
+            <option value="Research Project">Research / Innovation</option>
+            <option value="Sports Tournament">Sports / E-sports</option>
+            <option value="Volunteer Work">Volunteer / NGO Work</option>
+            <option value="Creative Collaboration">Creative Collaboration</option>
+            <option value="Community Activity">Community / Club Activity</option>
+            <option value="Workshop / Training">Workshop / Training</option>
+            <option value="Coding Competition">Coding / Algorithm Competition</option>
+            <option value="Art / Music Project">Art / Music Project</option>
+            <option value="Event Organization">Event Organization</option>
+            <option value="Social Campaign">Social Campaign / Awareness Drive</option>
+            <option value="Product Development">Product / Prototype Development</option>
+        </select>
+        </div>
+
 
       {/* Description */}
       <div className="mb-4">
@@ -265,38 +275,54 @@ function CreateTeamForm({ onCreate }) {
       </div>
 
       {/* Skills */}
-      <div className="mb-6">
+        <div className="mb-6">
         <label className="block text-[#096B68] font-semibold mb-1">
-          Skills Required *
+            Skills Required *
         </label>
+
+        {/* Input + Add Button */}
         <div className="flex gap-2">
-          <input
+            <input
             type="text"
             name="skillInput"
             value={formData.skillInput}
             onChange={handleChange}
             placeholder="React, Node, AI..."
             className="flex-1 px-4 py-2 rounded-lg border border-[#90D1CA] bg-[#FFFBDE] text-black"
-          />
-          <button
+            />
+            <button
             type="button"
             onClick={handleAddSkill}
             className="p-2 bg-[#129990] text-white rounded-lg"
-          >
-            <Plus size={18} />
-          </button>
-        </div>
-        <div className="flex gap-2 mt-2 flex-wrap">
-          {formData.skills.map((skill, index) => (
-            <span
-              key={index}
-              className="px-3 py-1 bg-[#90D1CA] text-[#096B68] rounded-full text-sm font-medium"
             >
-              {skill}
-            </span>
-          ))}
+            <Plus size={18} />
+            </button>
         </div>
-      </div>
+
+        {/* Display Added Skills */}
+        <div className="flex gap-2 mt-2 flex-wrap">
+            {formData.skills.map((skill, index) => (
+            <span
+                key={index}
+                className="flex items-center gap-1 px-3 py-1 bg-[#90D1CA] text-[#096B68] rounded-full text-sm font-medium"
+            >
+                {skill}
+                <button
+                type="button"
+                onClick={() =>
+                    setFormData((prev) => ({
+                    ...prev,
+                    skills: prev.skills.filter((_, i) => i !== index),
+                    }))
+                }
+                className="text-[#129990] hover:text-black font-bold"
+                >
+                ×
+                </button>
+            </span>
+            ))}
+        </div>
+        </div>
 
       <button
         type="submit"
