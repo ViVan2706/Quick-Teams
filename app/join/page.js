@@ -42,19 +42,59 @@ export default function TeamForm() {
     setter(updated);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const formData = {
-      headline,
-      labels,
-      techstack,
-      hobbies,
-      purpose,
-      teamSize,
-    };
-    console.log("Form Data:", formData);
-    // send to backend
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const formData = {
+  //     headline,
+  //     labels,
+  //     techstack,
+  //     hobbies,
+  //     purpose,
+  //     teamSize,
+  //   };
+  //   console.log("Form Data:", formData);
+  //   // send to backend
+  // };
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const formData = {
+    uid: userData?.uid || "u000",
+    headline,
+    purpose,
+    labels,
+    techstack,
+    hobbies,
+    teamSize,
   };
+
+  try {
+    const res = await fetch("/api/findactions", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    const result = await res.json();
+
+    if (res.ok) {
+      alert("FindAction created successfully!");
+      // reset form
+      setHeadline("");
+      setLabels([]);
+      setTechstack([]);
+      setHobbies([]);
+      setPurpose("Hackathon");
+      setTeamSize("Any");
+    } else {
+      alert("Error: " + result.error);
+    }
+  } catch (err) {
+    console.error(err);
+    alert("Something went wrong!");
+  }
+};
+
 
   return (
     <form onSubmit={handleSubmit} className="mt-15 bg-white text-black shadow-md rounded-2xl p-6 max-w-xl mx-auto space-y-6 border border-[#90D1CA]">
