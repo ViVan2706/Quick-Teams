@@ -1,9 +1,7 @@
+import Sidebar from './components/left-sidebar.jsx'
 
-
-export default function Home() {
+export default function BlankPage() {
   return (
-    <div>
-      <h1>landing page</h1>
-    </div>
+    <Sidebar/>
   );
 }
