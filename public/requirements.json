@@ -1,0 +1,32 @@
+{
+  "teamRequirements": [
+    {
+      "id": "1",
+      "userId": "demo",
+      "title": "Maths Study Group",
+      "description": "For semester 1 exam prep",
+      "skills": ["Mathematics", "Problem Solving"],
+      "status": "created",
+      "createdAt": "2025-09-01T10:00:00Z"
+    },
+    {
+      "id": "2",
+      "userId": "demo",
+      "title": "AI Hackathon",
+      "description": "Join us for building ML models",
+      "skills": ["Python", "Machine Learning"],
+      "status": "joined",
+      "createdAt": "2025-09-02T15:30:00Z"
+    },
+    {
+      "id": "3",
+      "userId": "demo",
+      "title": "Robotics Club Team",
+      "description": "Working on line-following robot",
+      "skills": ["Arduino", "C++"],
+      "status": "joined",
+      "createdAt": "2025-09-03T18:20:00Z"
+    }
+  ]
+}
+
