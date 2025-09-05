@@ -1,8 +1,6 @@
-// components/MatchEngine.js
-import fs from "fs";
-import path from "path";
+// models/MatchEngine.js
 
-// simple label compatibility mapping (can be expanded)
+// simple label compatibility mapping
 const labelCompatibility = {
   Role: {
     Innovator: ["Executor", "Analyzer", "Leader"],
@@ -28,30 +26,30 @@ const labelCompatibility = {
     Learner: ["Achiever", "Researcher"],
     "Career-focused": ["Achiever", "Planner"],
     Collaborator: ["Leader", "Supporter"],
-  }
+  },
 };
 
 // cosine similarity helper
 function cosineSimilarity(arr1, arr2) {
   const set1 = new Set(arr1.map(v => v.toLowerCase()));
   const set2 = new Set(arr2.map(v => v.toLowerCase()));
-
   const intersection = [...set1].filter(v => set2.has(v)).length;
   return intersection / Math.sqrt(set1.size * set2.size || 1);
 }
 
 // label compatibility score
 function labelScore(userLabels, actionCreatorLabels) {
-  let score = 0, total = 0;
+  let score = 0,
+    total = 0;
 
   for (const category in userLabels) {
-    const uVals = Array.isArray(userLabels[category]) 
-      ? userLabels[category] 
-      : [userLabels[category]];   // wrap string into array
+    const uVals = Array.isArray(userLabels[category])
+      ? userLabels[category]
+      : [userLabels[category]];
 
-    const aVals = Array.isArray(actionCreatorLabels[category]) 
-      ? actionCreatorLabels[category] 
-      : [actionCreatorLabels[category]];  // same for action creator
+    const aVals = Array.isArray(actionCreatorLabels[category])
+      ? actionCreatorLabels[category]
+      : [actionCreatorLabels[category]];
 
     uVals.forEach(u => {
       total++;
@@ -65,39 +63,46 @@ function labelScore(userLabels, actionCreatorLabels) {
   return total > 0 ? score / total : 0;
 }
 
-
-// main matcher
+// main matcher (fetch JSON instead of fs)
 export async function MatchUsers(action) {
-  const filePath = path.join(process.cwd(), "public", "users.json");
-  const data = JSON.parse(fs.readFileSync(filePath, "utf-8"));
-  const users = data.users;
+  const usersRes = await fetch("/users.json");
+  const usersData = await usersRes.json();
+  const users = usersData.users;
 
   // get action creator
   const creator = users.find(u => u.user_id === action.user_id);
 
   const results = users
-    .filter(u => u.user_id !== action.user_id && !action.user_joined.includes(u.user_id))
+    .filter(
+      u =>
+        u.user_id !== action.user_id &&
+        !action.user_joined.includes(u.user_id)
+    )
     .map(u => {
       const techScore = cosineSimilarity(u.techstack, action.skill_req);
       const hobbyScore = cosineSimilarity(u.hobbies, creator?.hobbies || []);
-      const labelCompatibilityScore = labelScore(u.labels, creator?.labels || {});
+      const labelCompatibilityScore = labelScore(
+        u.labels,
+        creator?.labels || {}
+      );
 
-      // weighted sum
-      const finalScore = (techScore * 0.5) + (hobbyScore * 0.2) + (labelCompatibilityScore * 0.3);
+      const finalScore =
+        techScore * 0.5 + hobbyScore * 0.2 + labelCompatibilityScore * 0.3;
 
       return {
-        user_id: u.user_id,
-        name: u.name,
-        profile: u.profile,
+        ...u, // ✅ full user data
         score: (finalScore * 100).toFixed(2) + "%",
         commonSkills: u.techstack.filter(t =>
-          action.skill_req.some(req => req.toLowerCase() === t.toLowerCase())
+          action.skill_req.some(
+            req => req.toLowerCase() === t.toLowerCase()
+          )
         ),
         commonHobbies: u.hobbies.filter(h =>
-          (creator?.hobbies || []).some(ch => ch.toLowerCase() === h.toLowerCase())
+          (creator?.hobbies || []).some(
+            ch => ch.toLowerCase() === h.toLowerCase()
+          )
         ),
-
-        matchedLabels: labelCompatibilityScore
+        matchedLabels: labelCompatibilityScore,
       };
     })
     .sort((a, b) => parseFloat(b.score) - parseFloat(a.score));
