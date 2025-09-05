@@ -1,0 +1,28 @@
+{
+    "actions" : [
+    {
+        "ac_id": "a001",
+        "user_id": "u101",
+        "team_name": "AI Innovators",
+        "team_purpose": "Build AI-powered productivity tools",
+        "description": "We are creating a smart assistant for productivity apps.",
+        "team_size": 5,
+        "skill_req": ["python", "machine learning", "react", "nodejs"],
+        "user_joined": ["u101"],
+        "status": "pending",
+        "created_at": "2025-09-06T10:00:00Z"
+    },
+    {
+        "ac_id": "a002",
+        "user_id": "u102",
+        "team_name": "Web Builders",
+        "team_purpose": "Full-stack web development",
+        "description": "Building a modern platform for student collaboration.",
+        "team_size": 4,
+        "skill_req": ["javascript", "express", "mongodb", "tailwindcss"],
+        "user_joined": ["u102", "u108"],
+        "status": "pending",
+        "created_at": "2025-09-06T10:20:00Z"
+    }
+    ]
+}
