@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+
 import { PlusCircle, Search } from "lucide-react";
 import Link from "next/link";
 
@@ -34,7 +35,7 @@ export default function Sidebar() {
   }, []);
 
   return (
-    <aside className="w-64 h-[calc(100vh-64px)] bg-[#FFFBDE] shadow-lg flex flex-col p-6 space-y-6 border-l-4 border-r-4 border-[#096B68] mt-16">
+    <aside className="w-64 h-[calc(100vh-64px)] h-full bg-[#FFFBDE] shadow-lg flex flex-col p-6 space-y-6 border-l-4 border-r-4 border-[#096B68] mt-16">
       {/* Section Title */}
       <h2 className="text-[#096B68] font-semibold text-sm uppercase">
         Team Actions

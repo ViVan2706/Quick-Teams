@@ -2,10 +2,13 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, MessageCircle, User } from "lucide-react";
 
 export default function Header({ onToggleSidebar, onToggleChat }) {
   const [notifications] = useState(3);
+  const pathname = usePathname();
+  console.log(pathname);
 
   return (
     <header className="w-full bg-[#FFFBDE] shadow-md px-6 py-3 flex items-center justify-between fixed top-0 left-0 right-0 z-50">
@@ -18,20 +21,20 @@ export default function Header({ onToggleSidebar, onToggleChat }) {
         >
           <Menu size={20} />
         </button>
-        <h1 className="text-xl font-bold text-[#096B68]">MyWebPage</h1>
+        <h1 className="text-xl font-bold text-[#096B68]">Quick Teams</h1>
       </div>
 
       {/* Middle Section - Navigation */}
       <nav className="flex gap-6">
         <Link
           href="/"
-          className="text-[#129990] font-medium hover:text-[#096B68] transition"
+          className={`font-medium ${ pathname === '/' ? "bg-[#129990] text-[#FFFBDE] pt-1 pb-1 pl-2 pr-2 rounded-md" : "text-[#129990]  font-medium hover:text-[#096B68] transition"}`}
         >
           Home
         </Link>
         <Link
           href="/mygroup"
-          className="text-[#129990] font-medium hover:text-[#096B68] transition"
+          className={`font-medium ${ pathname === '/mygroup' ? "bg-[#129990] text-[#FFFBDE] pt-1 pb-1 pl-2 pr-2 rounded-md" : "text-[#129990]  font-medium hover:text-[#096B68] transition"}`}
         >
           My Groups
         </Link>
