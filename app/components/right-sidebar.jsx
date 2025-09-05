@@ -1,58 +1,79 @@
-'use client';
+"use client";
 
-import { FaTimes, FaUser, FaUsers } from 'react-icons/fa';
+import { X, Users } from "lucide-react";
 
-export default function RightSidebar({ isOpen, onClose }) {
-  const chatMessages = [
-    { id: 1, sender: 'Alex Morgan', message: 'Wants to join your Robotics Team...', type: 'request', avatar: 'AM' },
-    { id: 2, sender: 'SIH Team 2024', message: 'Sarah: Let\'s meet tomorrow at 3...', type: 'chat', avatar: 'SIH', newMessages: 2 },
-    { id: 3, sender: 'Web Dev Squad', message: 'Mike: Check out this new framework!', type: 'chat', avatar: 'WD' },
+export default function ChatSidebar({ onClose }) {
+  // Example data
+  const requests = [
+    { id: 1, name: "Alex Morgan", message: "Wants to join your Robotics ...", avatar: "AM", isNew: true },
+  ];
+
+  const groupChats = [
+    { id: 1, name: "SIH Team 2024", message: "Sarah: Let's meet tomorrow at 3...", unread: 2 },
+    { id: 2, name: "Web Dev Squad", message: "Mike: Check out this new framework!", unread: 0 },
   ];
 
   return (
-    <div
-      className={`fixed right-0 top-0 h-full w-80 bg-white shadow-lg p-6 transform transition-transform duration-300 ease-in-out z-40 ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
-    >
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-xl font-bold text-gray-700">Messages</h2>
-        <button onClick={onClose} className="text-gray-500 hover:text-gray-700">
-          <FaTimes />
+    <aside className="fixed top-16 right-0 w-80 h-[calc(100vh-64px)] bg-[#FFFBDE] shadow-lg border-l-4 border-[#096B68] p-6 flex flex-col space-y-6">
+      {/* Header */}
+      <div className="flex items-center justify-between">
+        <h2 className="text-[#096B68] font-bold text-lg">Messages</h2>
+        <button onClick={onClose} className="text-[#096B68] hover:text-[#129990] transition">
+          <X size={20} />
         </button>
       </div>
 
-      {/* Requests Section */}
-      <div className="mb-6">
-        <h3 className="font-semibold text-gray-500 mb-2">Requests</h3>
-        {chatMessages.filter(m => m.type === 'request').map(msg => (
-          <div key={msg.id} className="p-3 mb-2 flex items-center space-x-3 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer">
-            <div className="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center text-xs font-bold text-gray-700">{msg.avatar}</div>
-            <div className="flex-1">
-              <p className="font-semibold text-sm">{msg.sender}</p>
-              <p className="text-sm text-gray-500 truncate">{msg.message}</p>
+      {/* Requests */}
+      <div>
+        <h3 className="text-[#096B68] font-semibold text-sm mb-2">Requests</h3>
+        <div className="space-y-3">
+          {requests.map((req) => (
+            <div key={req.id} className="flex items-center justify-between p-3 rounded-lg bg-white shadow-sm cursor-pointer hover:bg-[#90D1CA]/20 transition">
+              {/* Avatar */}
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[#90D1CA] flex items-center justify-center font-bold text-[#096B68]">
+                  {req.avatar}
+                </div>
+                <div>
+                  <p className="font-semibold text-[#096B68]">{req.name}</p>
+                  <p className="text-xs text-gray-500 truncate">{req.message}</p>
+                </div>
+              </div>
+              {req.isNew && (
+                <span className="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                  New
+                </span>
+              )}
             </div>
-            <span className="text-xs font-bold text-white bg-red-500 px-2 py-1 rounded-full">New</span>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
-      {/* Group Chats Section */}
+      {/* Group Chats */}
       <div>
-        <h3 className="font-semibold text-gray-500 mb-2">Group Chats</h3>
-        {chatMessages.filter(m => m.type === 'chat').map(msg => (
-          <div key={msg.id} className="p-3 mb-2 flex items-center space-x-3 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer">
-            <div className={`w-8 h-8 rounded-full bg-accent-2 text-white flex items-center justify-center text-xs font-bold`}>
-              <FaUsers />
+        <h3 className="text-[#096B68] font-semibold text-sm mb-2">Group Chats</h3>
+        <div className="space-y-3">
+          {groupChats.map((chat) => (
+            <div key={chat.id} className="flex items-center justify-between p-3 rounded-lg bg-white shadow-sm cursor-pointer hover:bg-[#90D1CA]/20 transition">
+              {/* Icon + Chat info */}
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[#90D1CA] flex items-center justify-center text-white">
+                  <Users size={18} />
+                </div>
+                <div>
+                  <p className="font-semibold text-[#096B68]">{chat.name}</p>
+                  <p className="text-xs text-gray-500 truncate">{chat.message}</p>
+                </div>
+              </div>
+              {chat.unread > 0 && (
+                <span className="bg-[#129990] text-white text-xs font-bold px-2 py-1 rounded-full">
+                  {chat.unread}
+                </span>
+              )}
             </div>
-            <div className="flex-1">
-              <p className="font-semibold text-sm">{msg.sender}</p>
-              <p className="text-sm text-gray-500 truncate">{msg.message}</p>
-            </div>
-            {msg.newMessages && (
-              <span className="text-xs font-bold text-white bg-blue-500 px-2 py-1 rounded-full">{msg.newMessages}</span>
-            )}
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </aside>
   );
 }
