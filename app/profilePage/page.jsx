@@ -114,178 +114,184 @@ export default function Profile() {
         </div>
 
         {/* Profile Info */}
-        {tab === "profile" && (
-          <div className="p-4 bg-white rounded shadow space-y-4 mt-4 rounded-xl">
-            <div className="flex justify-between items-center">
-              <h2 className="font-semibold">Profile Information</h2>
-              <button
-                onClick={() => setIsEditing(!isEditing)}
-                className="flex items-center gap-1 bg-[#096B68] text-white px-3 py-1 rounded"
-              >
-                {isEditing ? <Save size={14} /> : <Edit size={14} />}
-                {isEditing ? "Save" : "Edit"}
-              </button>
-            </div>
+{tab === "profile" && (
+  <div className="p-4 bg-white rounded-xl shadow space-y-4 mt-4">
+    <div className="flex justify-between items-center">
+      <h2 className="font-semibold">Profile Information</h2>
+      <button
+        onClick={() => setIsEditing(!isEditing)}
+        className="flex items-center gap-1 bg-[#096B68] text-white px-3 py-1 rounded-lg"
+      >
+        {isEditing ? <Save size={14} /> : <Edit size={14} />}
+        {isEditing ? "Save" : "Edit"}
+      </button>
+    </div>
 
-            <input
-              className="border p-2 w-full rounded"
-              value={profile.name}
-              disabled={!isEditing}
-              onChange={e => setProfile({ ...profile, name: e.target.value })}
-            />
+    <input
+      className="border p-2 w-full rounded-xl"
+      value={profile.name}
+      disabled={!isEditing}
+      onChange={e => setProfile({ ...profile, name: e.target.value })}
+    />
 
-            <textarea
-              className="border p-2 w-full rounded min-h-[100px]"
-              value={profile.bio}
-              disabled={!isEditing}
-              onChange={e => setProfile({ ...profile, bio: e.target.value })}
-            />
+    <textarea
+      className="border p-2 w-full rounded-xl min-h-[100px]"
+      value={profile.bio}
+      disabled={!isEditing}
+      onChange={e => setProfile({ ...profile, bio: e.target.value })}
+    />
 
-            {/* Skills */}
-            <div>
-              <p className="font-medium">Skills</p>
-              {isEditing && (
-                <div className="flex gap-2 mt-1">
-                  <input
-                    className="border flex-1 p-2 rounded"
-                    value={newSkill}
-                    placeholder="Add a skill..."
-                    onChange={e => setNewSkill(e.target.value)}
-                    onKeyDown={e => e.key === "Enter" && (addItem(skills, setSkills, newSkill), setNewSkill(""))}
-                  />
-                  <button
-                    onClick={() => (addItem(skills, setSkills, newSkill), setNewSkill(""))}
-                    className="bg-[#129990] text-white px-3 rounded"
-                    title="Add skill"
-                  >
-                    <Plus size={14} />
-                  </button>
-                </div>
-              )}
-              <div className="flex flex-wrap gap-2 mt-2">
-                {skills.map(s => (
-                  <span key={s} className="bg-[#90D1CA] px-2 py-1 rounded flex items-center gap-1">
-                    {s}
-                    {isEditing && (
-                      <X
-                        size={12}
-                        className="cursor-pointer"
-                        onClick={() => removeItem(skills, setSkills, s)}
-                        title="Remove"
-                      />
-                    )}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Interests */}
-            <div>
-              <p className="font-medium">Interests</p>
-              {isEditing && (
-                <div className="flex gap-2 mt-1">
-                  <input
-                    className="border flex-1 p-2 rounded"
-                    value={newInterest}
-                    placeholder="Add an interest..."
-                    onChange={e => setNewInterest(e.target.value)}
-                    onKeyDown={e => e.key === "Enter" && (addItem(interests, setInterests, newInterest), setNewInterest(""))}
-                  />
-                  <button
-                    onClick={() => (addItem(interests, setInterests, newInterest), setNewInterest(""))}
-                    className="bg-[#129990] text-white px-3 rounded"
-                    title="Add interest"
-                  >
-                    <Plus size={14} />
-                  </button>
-                </div>
-              )}
-              <div className="flex flex-wrap gap-2 mt-2">
-                {interests.map(i => (
-                  <span key={i} className="border px-2 py-1 rounded flex items-center gap-1">
-                    {i}
-                    {isEditing && (
-                      <X
-                        size={12}
-                        className="cursor-pointer"
-                        onClick={() => removeItem(interests, setInterests, i)}
-                        title="Remove"
-                      />
-                    )}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Team History */}
-        {tab === "teams" && (
-          <div className="p-4 bg-white rounded shadow mt-4 space-y-3 rounded-xl">
-            <h2 className="font-semibold">Team History</h2>
-            <div className="p-3 border rounded flex items-center justify-between">
-              <div>
-                <p className="font-medium">SIH Team 2024</p>
-                <p className="text-xs text-gray-600">Smart city IoT solutions</p>
-              </div>
-              <span className="bg-[#90D1CA] px-2 rounded">Active</span>
-            </div>
-          </div>
-        )}
-
-        {/* Settings */}
-        {tab === "settings" && (
-          <div className="p-4 bg-white rounded shadow mt-4 space-y-4 rounded-xl">
-            <h2 className="font-semibold flex items-center gap-2">
-              <Settings size={16} /> Account Settings
-            </h2>
-
-            <div className="flex justify-between items-center">
-              <span>Team invitations</span>
-              <input
-                type="checkbox"
-                checked={notifications.invites}
-                onChange={e => setNotifications({ ...notifications, invites: e.target.checked })}
+    {/* Skills */}
+    <div>
+      <p className="font-medium">Skills</p>
+      {isEditing && (
+        <div className="flex gap-2 mt-1">
+          <input
+            className="border flex-1 p-2 rounded-xl"
+            value={newSkill}
+            placeholder="Add a skill..."
+            onChange={e => setNewSkill(e.target.value)}
+            onKeyDown={e => e.key === "Enter" && (addItem(skills, setSkills, newSkill), setNewSkill(""))}
+          />
+          <button
+            onClick={() => (addItem(skills, setSkills, newSkill), setNewSkill(""))}
+            className="bg-[#129990] text-white px-3 rounded-lg"
+            title="Add skill"
+          >
+            <Plus size={14} />
+          </button>
+        </div>
+      )}
+      <div className="flex flex-wrap gap-2 mt-2">
+        {skills.map(s => (
+          <span key={s} className="bg-[#90D1CA] px-2 py-1 rounded-xl flex items-center gap-1">
+            {s}
+            {isEditing && (
+              <X
+                size={12}
+                className="cursor-pointer"
+                onClick={() => removeItem(skills, setSkills, s)}
+                title="Remove"
               />
-            </div>
+            )}
+          </span>
+        ))}
+      </div>
+    </div>
 
-            <div className="flex justify-between items-center">
-              <span>New messages</span>
-              <input
-                type="checkbox"
-                checked={notifications.messages}
-                onChange={e => setNotifications({ ...notifications, messages: e.target.checked })}
+    {/* Interests */}
+    <div>
+      <p className="font-medium">Interests</p>
+      {isEditing && (
+        <div className="flex gap-2 mt-1">
+          <input
+            className="border flex-1 p-2 rounded-xl"
+            value={newInterest}
+            placeholder="Add an interest..."
+            onChange={e => setNewInterest(e.target.value)}
+            onKeyDown={e => e.key === "Enter" && (addItem(interests, setInterests, newInterest), setNewInterest(""))}
+          />
+          <button
+            onClick={() => (addItem(interests, setInterests, newInterest), setNewInterest(""))}
+            className="bg-[#129990] text-white px-3 rounded-lg"
+            title="Add interest"
+          >
+            <Plus size={14} />
+          </button>
+        </div>
+      )}
+      <div className="flex flex-wrap gap-2 mt-2">
+        {interests.map(i => (
+          <span key={i} className="border px-2 py-1 rounded-xl flex items-center gap-1">
+            {i}
+            {isEditing && (
+              <X
+                size={12}
+                className="cursor-pointer"
+                onClick={() => removeItem(interests, setInterests, i)}
+                title="Remove"
               />
-            </div>
+            )}
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
+)}
 
-            <div className="flex justify-between items-center">
-              <span>Public profile</span>
-              <input
-                type="checkbox"
-                checked={privacy.public}
-                onChange={e => setPrivacy({ ...privacy, public: e.target.checked })}
-              />
-            </div>
+{/* Team History */}
+{tab === "teams" && (
+  <div className="p-4 bg-white rounded-xl shadow mt-4 space-y-3">
+    <h2 className="font-semibold">Team History</h2>
+    <div className="p-3 border rounded-xl flex items-center justify-between">
+      <div>
+        <p className="font-medium">SIH Team 2024</p>
+        <p className="text-xs text-gray-600">Smart city IoT solutions</p>
+      </div>
+      <span className="bg-[#90D1CA] px-2 rounded-lg">Active</span>
+    </div>
+  </div>
+)}
 
-            <div className="flex justify-between items-center">
-              <span>Show skills</span>
-              <input
-                type="checkbox"
-                checked={privacy.skills}
-                onChange={e => setPrivacy({ ...privacy, skills: e.target.checked })}
-              />
-            </div>
+{/* Settings */}
+{tab === "settings" && (
+  <div className="p-4 bg-white rounded-xl shadow mt-4 space-y-4">
+    <h2 className="font-semibold flex items-center gap-2">
+      <Settings size={16} /> Account Settings
+    </h2>
 
-            <div className="flex justify-between items-center">
-              <span>Show activity status</span>
-              <input
-                type="checkbox"
-                checked={privacy.activity}
-                onChange={e => setPrivacy({ ...privacy, activity: e.target.checked })}
-              />
-            </div>
-          </div>
-        )}
+    <div className="flex justify-between items-center">
+      <span>Team invitations</span>
+      <input
+        type="checkbox"
+        checked={notifications.invites}
+        onChange={e => setNotifications({ ...notifications, invites: e.target.checked })}
+        className="rounded-lg"
+      />
+    </div>
+
+    <div className="flex justify-between items-center">
+      <span>New messages</span>
+      <input
+        type="checkbox"
+        checked={notifications.messages}
+        onChange={e => setNotifications({ ...notifications, messages: e.target.checked })}
+        className="rounded-lg"
+      />
+    </div>
+
+    <div className="flex justify-between items-center">
+      <span>Public profile</span>
+      <input
+        type="checkbox"
+        checked={privacy.public}
+        onChange={e => setPrivacy({ ...privacy, public: e.target.checked })}
+        className="rounded-lg"
+      />
+    </div>
+
+    <div className="flex justify-between items-center">
+      <span>Show skills</span>
+      <input
+        type="checkbox"
+        checked={privacy.skills}
+        onChange={e => setPrivacy({ ...privacy, skills: e.target.checked })}
+        className="rounded-lg"
+      />
+    </div>
+
+    <div className="flex justify-between items-center">
+      <span>Show activity status</span>
+      <input
+        type="checkbox"
+        checked={privacy.activity}
+        onChange={e => setPrivacy({ ...privacy, activity: e.target.checked })}
+        className="rounded-lg"
+      />
+    </div>
+  </div>
+)}
+
       </div>
     </div>
   );
