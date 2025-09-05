@@ -52,14 +52,15 @@ export default function Sidebar() {
             <span className="text-xs text-[#129990]">Start your own project</span>
           </button>
         </Link>
-
-        <button className="w-full flex flex-col items-start gap-1 px-4 py-3 rounded-lg border border-[#129990] hover:bg-[#129990]/20 transition">
-          <div className="flex items-center gap-2 text-[#096B68] font-medium">
-            <Search size={18} />
-            Find a Team
-          </div>
-          <span className="text-xs text-[#129990]">Join existing teams</span>
-        </button>
+        <Link href={'/join'}>
+          <button className="w-full flex flex-col items-start gap-1 px-4 py-3 rounded-lg border border-[#129990] hover:bg-[#129990]/20 transition">
+            <div className="flex items-center gap-2 text-[#096B68] font-medium">
+              <Search size={18} />
+              Find a Team
+            </div>
+            <span className="text-xs text-[#129990]">Join existing teams</span>
+          </button>
+        </Link>
       </div>
 
       {/* Joined Teams History */}
