@@ -1,6 +1,17 @@
 import { MessageCircle, X, Check } from "lucide-react";
 
-export default function UserCard({ name, profile, bio, techstack = [], onReject }) {
+export default function UserCard({
+  name,
+  profile,
+  bio,
+  techstack = [],
+  labels = {}, // one label from each category
+  hobbies = [],
+  onReject,
+}) {
+  // Flatten label values into a single array
+  const allLabels = Object.values(labels);
+
   return (
     <div className="relative bg-[#FFFBDE] shadow-md rounded-2xl p-6 border border-[#90D1CA] w-full">
       {/* ❌ Cross Button (top-right) */}
@@ -24,17 +35,43 @@ export default function UserCard({ name, profile, bio, techstack = [], onReject 
       {/* Bio */}
       <p className="text-sm text-gray-700 mb-3">{bio}</p>
 
+      {/* Labels (Role + Skill + Work Style + Motivation) */}
+      <div className="flex flex-wrap gap-2 mb-4">
+        {allLabels.map((label, index) => (
+          <span
+            key={index}
+            className="px-3 py-1 text-xs font-medium bg-[#90D1CA] text-[#096B68] rounded-full"
+          >
+            {label}
+          </span>
+        ))}
+      </div>
+
       {/* Tech Stack */}
       <div className="flex flex-wrap gap-2 mb-4">
         {techstack.map((tech, index) => (
           <span
             key={index}
-            className="px-3 py-1 text-xs font-medium bg-[#90D1CA] text-[#096B68] rounded-full"
+            className="px-3 py-1 text-xs font-medium bg-[#D8EFE9] text-[#096B68] rounded-full"
           >
             {tech}
           </span>
         ))}
       </div>
+
+      {/* Hobbies */}
+      {hobbies.length > 0 && (
+        <div className="flex flex-wrap gap-2 mb-4">
+          {hobbies.map((hobby, index) => (
+            <span
+              key={index}
+              className="px-3 py-1 text-xs font-medium bg-[#FFE5A0] text-[#096B68] rounded-full"
+            >
+              {hobby}
+            </span>
+          ))}
+        </div>
+      )}
 
       {/* Actions */}
       <div className="flex justify-between">

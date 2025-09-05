@@ -109,7 +109,7 @@ export default function TeamsPage() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#FFFBDE] p-8">
+    <div className="flex flex-col min-h-screen bg-[#FFFBDE] p-8 mt-10">
       {loadingUsers && <p>Loading users…</p>}
 
       {!selectedTeam && <CreateTeamForm onCreate={createTeam} />}
