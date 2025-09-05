@@ -10,7 +10,7 @@ export default function MyGroupsPage() {
       crown: true,
       category: "Smart India Hackathon",
       members: 4,
-      date: "March 15, 2024",
+      date: "March 15, 2025",
       status: "Active",
       statusCount: 3,
       description:
