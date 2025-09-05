@@ -4,18 +4,21 @@ import { useState } from "react";
 import Link from "next/link";
 import { Menu, MessageCircle, User } from "lucide-react";
 
-export default function Header() {
+export default function Header({ onToggleSidebar, onToggleChat }) {
   const [notifications] = useState(3);
 
   return (
-    <header className="w-full bg-[#FFFBDE] shadow-md px-6 py-3 flex items-center justify-between">
+    <header className="w-full bg-[#FFFBDE] shadow-md px-6 py-3 flex items-center justify-between fixed top-0 left-0 right-0 z-50">
       {/* Left Section */}
       <div className="flex items-center gap-3">
-        <button className="p-2 rounded-lg bg-[#90D1CA] hover:bg-[#129990] text-white transition">
+        {/* Menu button controls sidebar */}
+        <button
+          onClick={onToggleSidebar}
+          className="p-2 rounded-lg bg-[#90D1CA] hover:bg-[#129990] text-white transition"
+        >
           <Menu size={20} />
         </button>
         <h1 className="text-xl font-bold text-[#096B68]">MyWebPage</h1>
-        
       </div>
 
       {/* Middle Section - Navigation */}
@@ -38,7 +41,10 @@ export default function Header() {
       <div className="flex items-center gap-5">
         {/* Chat with Notification */}
         <div className="relative">
-          <button className="p-2 rounded-full bg-[#90D1CA] hover:bg-[#129990] text-white transition">
+          <button
+            onClick={onToggleChat} // 👈 Controls Chat Sidebar
+            className="p-2 rounded-full bg-[#90D1CA] hover:bg-[#129990] text-white transition"
+          >
             <MessageCircle size={20} />
           </button>
           {notifications > 0 && (
