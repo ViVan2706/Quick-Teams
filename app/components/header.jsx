@@ -58,9 +58,11 @@ export default function Header({ onToggleSidebar, onToggleChat }) {
         </div>
 
         {/* Profile */}
+        <Link href={'/profilePage'}>
         <button className="p-2 rounded-full bg-[#129990] hover:bg-[#096B68] text-white transition">
           <User size={20} />
         </button>
+        </Link>
       </div>
     </header>
   );
