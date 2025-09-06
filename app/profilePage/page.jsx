@@ -1,48 +1,56 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Edit, Save, X, Plus, Mail, MapPin, Calendar,
   Users, Target, Award, Settings, Globe
 } from "lucide-react";
 
+const ICONS = { Users, Target, Award, Globe };
+
 export default function Profile() {
   const [isEditing, setIsEditing] = useState(false);
-  const [profile, setProfile] = useState({
-    name: "John Doe",
-    email: "john.doe@example.com",
-    bio: "Full-stack dev with 3+ years of experience.",
-    age: "24",
-    location: "San Francisco, CA",
-    education: "Computer Science, Stanford",
-    experience: "Senior Dev at TechCorp",
-  });
+  const [profile, setProfile] = useState(null);
 
   const [avatar, setAvatar] = useState(null);
   const fileInputRef = useRef(null);
 
-  const [skills, setSkills] = useState(["React", "TypeScript", "Node.js"]);
-  const [interests, setInterests] = useState(["Web Dev", "AI/ML"]);
+  // local input states
   const [newSkill, setNewSkill] = useState("");
   const [newInterest, setNewInterest] = useState("");
+  const [newLabel, setNewLabel] = useState("");
+
   const [tab, setTab] = useState("profile");
   const [notifications, setNotifications] = useState({ invites: true, messages: true });
   const [privacy, setPrivacy] = useState({ public: true, skills: true, activity: true });
 
+  // fetch user.json on mount
+  useEffect(() => {
+    fetch("/userdata.json")
+      .then(res => res.json())
+      .then(data => {
+        setProfile(data);
+      })
+      .catch(err => console.error("Error loading user.json:", err));
+  }, []);
+
+  if (!profile) {
+    return <div className="p-6 text-center">Loading profile...</div>;
+  }
+
+  // helpers
   const addItem = (list, setList, val) => {
     const v = (val || "").trim();
-    if (v && !list.includes(v)) setList([...list, v]);
+    if (!v) return;
+    if (list.includes(v)) return;
+    setList([...list, v]);
   };
   const removeItem = (list, setList, val) => setList(list.filter(i => i !== val));
 
-  const stats = [
-    { label: "Teams Joined", value: "12", icon: Users },
-    { label: "Projects Completed", value: "8", icon: Target },
-    { label: "Success Rate", value: "96%", icon: Award },
-    { label: "Profile Views", value: "234", icon: Globe },
-  ];
+  // handlers for updating nested profile state
+  const updateProfileField = (field, value) =>
+    setProfile({ ...profile, [field]: value });
 
-  // JS (no TS types) file input handler
   const handleImageChange = (e) => {
     const file = e?.target?.files?.[0];
     if (file) {
@@ -90,13 +98,16 @@ export default function Profile() {
 
       {/* Stats */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        {stats.map((s, i) => (
-          <div key={i} className="p-4 rounded-lg bg-white shadow text-center space-y-2">
-            <div className="p-2 flex justify-center">{<s.icon size={18} />}</div>
-            <p className="text-xl font-bold">{s.value}</p>
-            <p className="text-xs text-gray-500">{s.label}</p>
-          </div>
-        ))}
+        {profile.stats.map((s, i) => {
+          const Icon = ICONS[s.icon] || Globe;
+          return (
+            <div key={i} className="p-4 rounded-lg bg-white shadow text-center space-y-2">
+              <div className="p-2 flex justify-center"><Icon size={18} /></div>
+              <p className="text-xl font-bold">{s.value}</p>
+              <p className="text-xs text-gray-500">{s.label}</p>
+            </div>
+          );
+        })}
       </div>
 
       {/* Tabs */}
@@ -127,20 +138,78 @@ export default function Profile() {
       </button>
     </div>
 
+    {/* Name */}
+    <label className="block font-medium">Name</label>
     <input
       className="border p-2 w-full rounded-xl"
       value={profile.name}
       disabled={!isEditing}
-      onChange={e => setProfile({ ...profile, name: e.target.value })}
+      onChange={e => updateProfileField("name", e.target.value)}
     />
 
+    {/* Bio */}
+    <label className="block font-medium">Bio</label>
     <textarea
       className="border p-2 w-full rounded-xl min-h-[100px]"
       value={profile.bio}
       disabled={!isEditing}
-      onChange={e => setProfile({ ...profile, bio: e.target.value })}
+      onChange={e => updateProfileField("bio", e.target.value)}
     />
 
+    {/* Education */}
+    <label className="block font-medium">Education</label>
+    <input
+      className="border p-2 w-full rounded-xl"
+      value={profile.education}
+      disabled={!isEditing}
+      onChange={e => updateProfileField("education", e.target.value)}
+    />
+
+    {/* Experience */}
+    <label className="block font-medium">Experience</label>
+    <input
+      className="border p-2 w-full rounded-xl"
+      value={profile.experience}
+      disabled={!isEditing}
+      onChange={e => updateProfileField("experience", e.target.value)}
+    />
+
+    {/* Labels */}
+<div>
+  <p className="font-medium flex items-center justify-between">
+    Labels
+    <button
+      onClick={async () => {
+  try {
+    const res = await fetch("/api/generatelabels", { method: "POST" });
+    const data = await res.json();
+    if (data.labels) {
+      setProfile({ ...profile, labels: data.labels });
+    } else {
+      alert("Failed to generate labels: " + (data.error || "Unknown error"));
+    }
+  } catch (err) {
+    console.error("Error generating labels:", err);
+    alert("Error generating labels. Check console for details.");
+  }
+}}
+      className="text-sm bg-[#096B68] text-white px-3 py-1 rounded-lg"
+    >
+      Generate Labels
+    </button>
+  </p>
+
+  <div className="flex flex-wrap gap-2 mt-2">
+    {profile.labels?.map((lab) => (
+      <span
+        key={lab}
+        className="bg-[#FFE5A0] text-[#096B68] px-3 py-1 rounded-full"
+      >
+        {lab}
+      </span>
+    ))}
+  </div>
+</div>
     {/* Skills */}
     <div>
       <p className="font-medium">Skills</p>
@@ -151,27 +220,35 @@ export default function Profile() {
             value={newSkill}
             placeholder="Add a skill..."
             onChange={e => setNewSkill(e.target.value)}
-            onKeyDown={e => e.key === "Enter" && (addItem(skills, setSkills, newSkill), setNewSkill(""))}
+            onKeyDown={e => {
+              if (e.key === "Enter") {
+                updateProfileField("skills", [...profile.skills, newSkill]);
+                setNewSkill("");
+              }
+            }}
           />
           <button
-            onClick={() => (addItem(skills, setSkills, newSkill), setNewSkill(""))}
+            onClick={() => {
+              updateProfileField("skills", [...profile.skills, newSkill]);
+              setNewSkill("");
+            }}
             className="bg-[#129990] text-white px-3 rounded-lg"
-            title="Add skill"
           >
             <Plus size={14} />
           </button>
         </div>
       )}
       <div className="flex flex-wrap gap-2 mt-2">
-        {skills.map(s => (
+        {profile.skills.map(s => (
           <span key={s} className="bg-[#90D1CA] px-2 py-1 rounded-xl flex items-center gap-1">
             {s}
             {isEditing && (
               <X
                 size={12}
                 className="cursor-pointer"
-                onClick={() => removeItem(skills, setSkills, s)}
-                title="Remove"
+                onClick={() =>
+                  updateProfileField("skills", profile.skills.filter(sk => sk !== s))
+                }
               />
             )}
           </span>
@@ -189,27 +266,35 @@ export default function Profile() {
             value={newInterest}
             placeholder="Add an interest..."
             onChange={e => setNewInterest(e.target.value)}
-            onKeyDown={e => e.key === "Enter" && (addItem(interests, setInterests, newInterest), setNewInterest(""))}
+            onKeyDown={e => {
+              if (e.key === "Enter") {
+                updateProfileField("interests", [...profile.interests, newInterest]);
+                setNewInterest("");
+              }
+            }}
           />
           <button
-            onClick={() => (addItem(interests, setInterests, newInterest), setNewInterest(""))}
+            onClick={() => {
+              updateProfileField("interests", [...profile.interests, newInterest]);
+              setNewInterest("");
+            }}
             className="bg-[#129990] text-white px-3 rounded-lg"
-            title="Add interest"
           >
             <Plus size={14} />
           </button>
         </div>
       )}
       <div className="flex flex-wrap gap-2 mt-2">
-        {interests.map(i => (
+        {profile.interests.map(i => (
           <span key={i} className="border px-2 py-1 rounded-xl flex items-center gap-1">
             {i}
             {isEditing && (
               <X
                 size={12}
                 className="cursor-pointer"
-                onClick={() => removeItem(interests, setInterests, i)}
-                title="Remove"
+                onClick={() =>
+                  updateProfileField("interests", profile.interests.filter(it => it !== i))
+                }
               />
             )}
           </span>
@@ -219,79 +304,74 @@ export default function Profile() {
   </div>
 )}
 
-{/* Team History */}
-{tab === "teams" && (
-  <div className="p-4 bg-white rounded-xl shadow mt-4 space-y-3">
-    <h2 className="font-semibold">Team History</h2>
-    <div className="p-3 border rounded-xl flex items-center justify-between">
-      <div>
-        <p className="font-medium">SIH Team 2024</p>
-        <p className="text-xs text-gray-600">Smart city IoT solutions</p>
-      </div>
-      <span className="bg-[#90D1CA] px-2 rounded-lg">Active</span>
-    </div>
-  </div>
-)}
 
-{/* Settings */}
-{tab === "settings" && (
-  <div className="p-4 bg-white rounded-xl shadow mt-4 space-y-4">
-    <h2 className="font-semibold flex items-center gap-2">
-      <Settings size={16} /> Account Settings
-    </h2>
+        {/* Team History */}
+        {tab === "teams" && (
+          <div className="p-4 bg-white rounded-xl shadow mt-4 space-y-3">
+            <h2 className="font-semibold">Team History</h2>
+            <div className="p-3 border rounded-xl flex items-center justify-between">
+              <div>
+                <p className="font-medium">SIH Team 2024</p>
+                <p className="text-xs text-gray-600">Smart city IoT solutions</p>
+              </div>
+              <span className="bg-[#90D1CA] px-2 rounded-lg">Active</span>
+            </div>
+          </div>
+        )}
 
-    <div className="flex justify-between items-center">
-      <span>Team invitations</span>
-      <input
-        type="checkbox"
-        checked={notifications.invites}
-        onChange={e => setNotifications({ ...notifications, invites: e.target.checked })}
-        className="rounded-lg"
-      />
-    </div>
+        {/* Settings */}
+        {tab === "settings" && (
+          <div className="p-4 bg-white rounded-xl shadow mt-4 space-y-4">
+            <h2 className="font-semibold flex items-center gap-2">
+              <Settings size={16} /> Account Settings
+            </h2>
 
-    <div className="flex justify-between items-center">
-      <span>New messages</span>
-      <input
-        type="checkbox"
-        checked={notifications.messages}
-        onChange={e => setNotifications({ ...notifications, messages: e.target.checked })}
-        className="rounded-lg"
-      />
-    </div>
+            <div className="flex justify-between items-center">
+              <label>Team invitations</label>
+              <input
+                type="checkbox"
+                checked={notifications.invites}
+                onChange={e => setNotifications({ ...notifications, invites: e.target.checked })}
+              />
+            </div>
 
-    <div className="flex justify-between items-center">
-      <span>Public profile</span>
-      <input
-        type="checkbox"
-        checked={privacy.public}
-        onChange={e => setPrivacy({ ...privacy, public: e.target.checked })}
-        className="rounded-lg"
-      />
-    </div>
+            <div className="flex justify-between items-center">
+              <label>New messages</label>
+              <input
+                type="checkbox"
+                checked={notifications.messages}
+                onChange={e => setNotifications({ ...notifications, messages: e.target.checked })}
+              />
+            </div>
 
-    <div className="flex justify-between items-center">
-      <span>Show skills</span>
-      <input
-        type="checkbox"
-        checked={privacy.skills}
-        onChange={e => setPrivacy({ ...privacy, skills: e.target.checked })}
-        className="rounded-lg"
-      />
-    </div>
+            <div className="flex justify-between items-center">
+              <label>Public profile</label>
+              <input
+                type="checkbox"
+                checked={privacy.public}
+                onChange={e => setPrivacy({ ...privacy, public: e.target.checked })}
+              />
+            </div>
 
-    <div className="flex justify-between items-center">
-      <span>Show activity status</span>
-      <input
-        type="checkbox"
-        checked={privacy.activity}
-        onChange={e => setPrivacy({ ...privacy, activity: e.target.checked })}
-        className="rounded-lg"
-      />
-    </div>
-  </div>
-)}
+            <div className="flex justify-between items-center">
+              <label>Show skills</label>
+              <input
+                type="checkbox"
+                checked={privacy.skills}
+                onChange={e => setPrivacy({ ...privacy, skills: e.target.checked })}
+              />
+            </div>
 
+            <div className="flex justify-between items-center">
+              <label>Show activity status</label>
+              <input
+                type="checkbox"
+                checked={privacy.activity}
+                onChange={e => setPrivacy({ ...privacy, activity: e.target.checked })}
+              />
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
