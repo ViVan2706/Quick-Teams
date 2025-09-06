@@ -1,9 +1,9 @@
 "use client";
 
-import TeamCard from "../components/cards/TeamCard";
+import TeamCard from "../../components/cards/TeamCard";
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
-import { FindTeamEngine } from "../../models/FindTeamEngine"; // adjust path
+import { FindTeamEngine } from "../../../models/FindTeamEngine"; // adjust path
 
 export default function Test() {
   const searchParams = useSearchParams();

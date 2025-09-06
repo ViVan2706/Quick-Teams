@@ -31,8 +31,12 @@ const labelCompatibility = {
 
 // cosine similarity helper
 function cosineSimilarity(arr1, arr2) {
-  const set1 = new Set(arr1.map(v => v.toLowerCase()));
-  const set2 = new Set(arr2.map(v => v.toLowerCase()));
+  const safe1 = Array.isArray(arr1) ? arr1 : [];
+  const safe2 = Array.isArray(arr2) ? arr2 : [];
+
+  const set1 = new Set(safe1.map(v => String(v).toLowerCase()));
+  const set2 = new Set(safe2.map(v => String(v).toLowerCase()));
+
   const intersection = [...set1].filter(v => set2.has(v)).length;
   return intersection / Math.sqrt(set1.size * set2.size || 1);
 }
@@ -64,6 +68,10 @@ function labelScore(userLabels, actionCreatorLabels) {
 }
 
 // main matcher (fetch JSON instead of fs)
+// models/MatchEngine.js
+
+// ... existing code ...
+
 export async function MatchUsers(action) {
   const usersRes = await fetch("/users.json");
   const usersData = await usersRes.json();
@@ -72,33 +80,34 @@ export async function MatchUsers(action) {
   // get action creator
   const creator = users.find(u => u.user_id === action.user_id);
 
+  // Add safety checks for potentially undefined properties
+  const safeSkillReq = Array.isArray(action.skill_req) ? action.skill_req : [];
+  const safeCreatorHobbies = Array.isArray(creator?.hobbies) ? creator.hobbies : [];
+  const safeCreatorLabels = creator?.labels || {};
+
   const results = users
-    .filter(
-      u =>
-        u.user_id !== action.user_id &&
-        !action.user_joined.includes(u.user_id)
-    )
+    .filter(u => {
+      const joined = action.user_joined || [];
+      return u.user_id !== action.user_id && !joined.includes(u.user_id);
+    })
     .map(u => {
-      const techScore = cosineSimilarity(u.techstack, action.skill_req);
-      const hobbyScore = cosineSimilarity(u.hobbies, creator?.hobbies || []);
-      const labelCompatibilityScore = labelScore(
-        u.labels,
-        creator?.labels || {}
-      );
+      const techScore = cosineSimilarity(u.techstack, safeSkillReq);
+      const hobbyScore = cosineSimilarity(u.hobbies, safeCreatorHobbies);
+      const labelCompatibilityScore = labelScore(u.labels, safeCreatorLabels);
 
       const finalScore =
         techScore * 0.5 + hobbyScore * 0.2 + labelCompatibilityScore * 0.3;
 
       return {
-        ...u, // ✅ full user data
+        ...u,
         score: (finalScore * 100).toFixed(2) + "%",
         commonSkills: u.techstack.filter(t =>
-          action.skill_req.some(
+          safeSkillReq.some(
             req => req.toLowerCase() === t.toLowerCase()
           )
         ),
         commonHobbies: u.hobbies.filter(h =>
-          (creator?.hobbies || []).some(
+          safeCreatorHobbies.some(
             ch => ch.toLowerCase() === h.toLowerCase()
           )
         ),

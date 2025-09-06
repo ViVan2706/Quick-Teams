@@ -1,82 +1,95 @@
 {
-    "findActions": [
-        {
-            "facid": "f001",
-            "uid": "u000",
-            "purpose": "College/School Project",
-            "status": "not joined"
-        },
-        {
-            "facid": "f002",
-            "uid": "u001",
-            "purpose": "Startup / Entrepreneurship",
-            "status": "joined"
-        },
-        {
-            "facid": "f003",
-            "uid": "u002",
-            "purpose": "Research / Innovation",
-            "status": "not joined"
-        },
-        {
-            "facid": "f004",
-            "uid": "u003",
-            "purpose": "Sports / E-sports",
-            "status": "joined"
-        },
-        {
-            "facid": "f005",
-            "uid": "u000",
-            "purpose": "Volunteer / NGO Work",
-            "status": "not joined"
-        },
-        {
-            "facid": "f006",
-            "uid": "u004",
-            "purpose": "Creative Collaboration",
-            "status": "joined"
-        },
-        {
-            "facid": "f007",
-            "uid": "u005",
-            "purpose": "Community / Club Activity",
-            "status": "not joined"
-        },
-        {
-            "facid": "f008",
-            "uid": "u000",
-            "purpose": "Workshop / Training",
-            "status": "joined"
-        },
-        {
-            "facid": "f009",
-            "uid": "u006",
-            "purpose": "Coding / Algorithm Competition",
-            "status": "not joined"
-        },
-        {
-            "facid": "f010",
-            "uid": "u007",
-            "purpose": "Art / Music Project",
-            "status": "joined"
-        },
-        {
-            "facid": "f011",
-            "uid": "u000",
-            "purpose": "Event Organization",
-            "status": "not joined"
-        },
-        {
-            "facid": "f012",
-            "uid": "u008",
-            "purpose": "Social Campaign / Awareness Drive",
-            "status": "joined"
-        },
-        {
-            "facid": "f013",
-            "uid": "u009",
-            "purpose": "Product / Prototype Development",
-            "status": "not joined"
-        }
-    ]
+  "findActions": [
+    {
+      "facid": "f001",
+      "uid": "u101",
+      "purpose": "College/School Project",
+      "status": "not joined",
+      "title": "Smart Campus Automation"
+    },
+    {
+      "facid": "f002",
+      "uid": "u001",
+      "purpose": "Startup / Entrepreneurship",
+      "status": "joined",
+      "title": "AI Startup Builders"
+    },
+    {
+      "facid": "f003",
+      "uid": "u101",
+      "purpose": "Research / Innovation",
+      "status": "not joined",
+      "title": "Quantum Research Team"
+    },
+    {
+      "facid": "f004",
+      "uid": "u003",
+      "purpose": "Sports / E-sports",
+      "status": "joined",
+      "title": "E-Sports Legends"
+    },
+    {
+      "facid": "f005",
+      "uid": "u000",
+      "purpose": "Volunteer / NGO Work",
+      "status": "not joined",
+      "title": "Clean City Volunteers"
+    },
+    {
+      "facid": "f006",
+      "uid": "u004",
+      "purpose": "Creative Collaboration",
+      "status": "joined",
+      "title": "Indie Art Creators"
+    },
+    {
+      "facid": "f007",
+      "uid": "u005",
+      "purpose": "Community / Club Activity",
+      "status": "not joined",
+      "title": "Book Lovers Club"
+    },
+    {
+      "facid": "f008",
+      "uid": "u000",
+      "purpose": "Workshop / Training",
+      "status": "joined",
+      "title": "Full Stack Bootcamp"
+    },
+    {
+      "facid": "f009",
+      "uid": "u006",
+      "purpose": "Coding / Algorithm Competition",
+      "status": "not joined",
+      "title": "Algo Ninjas"
+    },
+    {
+      "facid": "f010",
+      "uid": "u007",
+      "purpose": "Art / Music Project",
+      "status": "joined",
+      "title": "Fusion Music Band"
+    },
+    {
+      "facid": "f011",
+      "uid": "u000",
+      "purpose": "Event Organization",
+      "status": "not joined",
+      "title": "TechFest Organizers"
+    },
+    {
+      "facid": "f012",
+      "uid": "u008",
+      "purpose": "Social Campaign / Awareness Drive",
+      "status": "joined",
+      "title": "Green Earth Campaign"
+    },
+    {
+      "facid": "f013",
+      "uid": "u009",
+      "purpose": "Product / Prototype Development",
+      "status": "not joined",
+      "title": "Robotics Prototype Team"
+    }
+  ]
 }

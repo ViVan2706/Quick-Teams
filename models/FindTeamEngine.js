@@ -30,6 +30,7 @@ export async function FindTeamEngine(findAction) {
     return {
       action_id: action.ac_id,
       team_name: action.team_name,
+      skill_req: action.skill_req,
       team_purpose: action.team_purpose,
       description: action.description,
       maxMembers: action.team_size,

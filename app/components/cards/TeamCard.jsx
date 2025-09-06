@@ -1,6 +1,7 @@
 import { Users, UserPlus, X } from "lucide-react";
 
 export default function TeamCard({
+  team_name,
   team_purpose,
   description,
   techstack = [],
@@ -22,10 +23,13 @@ export default function TeamCard({
         </button>
       )}
 
-      {/* Team Purpose */}
-      <h2 className="text-lg font-semibold text-[#096B68] mb-1">
-        {team_purpose}
-      </h2>
+      {/* Team Name */}
+      <h1 className="text-xl font-bold text-[#096B68] mb-1">{team_name}</h1>
+
+      {/* Team Purpose (smaller under name) */}
+      {team_purpose && (
+        <p className="text-sm text-gray-600 mb-3">{team_purpose}</p>
+      )}
 
       {/* Created By */}
       {creator && (
