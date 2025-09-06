@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 import {
   Edit, Save, X, Plus, Mail, MapPin, Calendar,
   Users, Target, Award, Settings, Globe
@@ -9,6 +10,7 @@ import {
 const ICONS = { Users, Target, Award, Globe };
 
 export default function Profile() {
+  const router = useRouter();
   const [isEditing, setIsEditing] = useState(false);
   const [profile, setProfile] = useState(null);
 
@@ -175,41 +177,33 @@ export default function Profile() {
     />
 
     {/* Labels */}
-<div>
-  <p className="font-medium flex items-center justify-between">
+<div className="bg-white p-4 rounded-xl shadow">
+  <p className="font-semibold flex items-center justify-between">
     Labels
     <button
-      onClick={async () => {
-  try {
-    const res = await fetch("/api/generatelabels", { method: "POST" });
-    const data = await res.json();
-    if (data.labels) {
-      setProfile({ ...profile, labels: data.labels });
-    } else {
-      alert("Failed to generate labels: " + (data.error || "Unknown error"));
-    }
-  } catch (err) {
-    console.error("Error generating labels:", err);
-    alert("Error generating labels. Check console for details.");
-  }
-}}
+      onClick={() => router.push("/quiz")}
       className="text-sm bg-[#096B68] text-white px-3 py-1 rounded-lg"
     >
-      Generate Labels
+      Take Quiz
     </button>
   </p>
 
-  <div className="flex flex-wrap gap-2 mt-2">
-    {profile.labels?.map((lab) => (
-      <span
-        key={lab}
-        className="bg-[#FFE5A0] text-[#096B68] px-3 py-1 rounded-full"
-      >
-        {lab}
-      </span>
-    ))}
+  <div className="flex gap-2 mt-2 flex-wrap">
+    {profile.labels?.length > 0 ? (
+      profile.labels.map((lab, i) => (
+        <span
+          key={i}
+          className="bg-[#FFE5A0] text-[#096B68] px-3 py-1 rounded-full"
+        >
+          {lab}
+        </span>
+      ))
+    ) : (
+      <p className="text-gray-500 text-sm">No labels yet</p>
+    )}
   </div>
 </div>
+
     {/* Skills */}
     <div>
       <p className="font-medium">Skills</p>
