@@ -1,11 +1,11 @@
 {
-  "name": "John Doe",
-  "email": "john.doe@example.com",
-  "bio": "Full-stack dev with 3+ years of experience.",
-  "age": "24",
-  "location": "San Francisco, CA",
-  "education": "Computer Science, Stanford",
-  "experience": "Senior Dev at TechCorp",
+  "name": "Mohit",
+  "email": "mohit@example.com",
+  "bio": "Frontend webdev",
+  "age": "20",
+  "location": "Jabalpur",
+  "education": "Computer Science, IIITDMJ",
+  "experience": "NA",
   "skills": [
     "React",
     "TypeScript",
@@ -38,8 +38,8 @@
     }
   ],
   "labels": [
-    "Supporter",
-    "Researcher",
-    "Detail-oriented"
+    "Leader",
+    "Creative",
+    "Planner"
   ]
 }

@@ -97,6 +97,20 @@
       "purpose": "College Project",
       "status": "not joined",
       "title": "ahfladhl"
+    },
+    {
+      "facid": "f9471",
+      "uid": "u000",
+      "purpose": "Hackathon",
+      "status": "not joined",
+      "title": "E yantra"
+    },
+    {
+      "facid": "f2041",
+      "uid": "u000",
+      "purpose": "Coding Competition",
+      "status": "not joined",
+      "title": "Finding a team for Coderumble"
     }
   ]
 }

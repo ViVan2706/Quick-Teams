@@ -79,7 +79,7 @@ export default function UserCard({
           <MessageCircle size={16} /> Chat
         </button>
         <button className="flex items-center gap-1 px-4 py-2 bg-[#129990] text-white text-sm font-medium rounded-xl hover:bg-[#096B68] transition">
-          <Check size={16} /> Request
+          {/* <Check size={16} /> Request */} Request
         </button>
       </div>
     </div>
