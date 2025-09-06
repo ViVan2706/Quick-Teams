@@ -102,8 +102,10 @@ export default function Sidebar() {
           Created Teams
         </h2>
         <ul className="space-y-2">
-          {actions.length > 0 ? (
-            actions.map((action) => (
+        {actions.length > 0 ? (
+          actions
+            .filter((action) => action.user_id === "u101") // ✅ only created by u101
+            .map((action) => (
               <Link
                 key={action.ac_id}
                 href={`/create/results?action_id=${action.ac_id}`}
@@ -112,17 +114,18 @@ export default function Sidebar() {
                   className={`px-3 py-2 my-2 rounded-lg font-medium cursor-pointer transition ${
                     action.ac_id === selectedActionId
                       ? "bg-[#096B68] text-white"
-                      : "bg-[#129990] text-white"
+                      : "bg-[#90D1CA] text-[#096B68] hover:bg-[#129990] hover:text-white"
                   }`}
                 >
-                  {action.title || `${action.team_purpose}`}
+                  {action.title || action.team_purpose}
                 </li>
               </Link>
             ))
-          ) : (
-            <p className="text-xs text-gray-500">No created teams yet</p>
-          )}
-        </ul>
+        ) : (
+          <p className="text-xs text-gray-500">No created teams yet</p>
+        )}
+      </ul>
+
       </div>
     </aside>
   );
