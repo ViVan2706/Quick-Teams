@@ -41,59 +41,45 @@ export default function Page() {
     setter(updated);
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const formData = {
-  //     headline,
-  //     labels,
-  //     techstack,
-  //     hobbies,
-  //     purpose,
-  //     teamSize,
-  //   };
-  //   console.log("Form Data:", formData);
-  //   // send to backend
-  // };
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const formData = {
-    uid: userData?.uid || "u000",
-    headline,
-    purpose,
-    labels,
-    techstack,
-    hobbies,
-    teamSize,
-  };
+    // Generate new find action id
+    const newFacId = "f" + Math.floor(Math.random() * 10000);
 
-  try {
-    const res = await fetch("/api/findactions", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
+    const formData = {
+      facid: newFacId,
+      uid: userData?.uid || "u000",
+      headline: headline,
+      purpose: purpose,
+      labels: labels,
+      techstack: techstack,
+      hobbies: hobbies,
+      teamSize: teamSize,
+      status: "not joined",
+      title: headline || "Looking for Team",
+    };
 
-    const result = await res.json();
+    try {
+      // Update the findactions.json file
+      const res = await fetch("/api/findactions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-    if (res.ok) {
-      alert("FindAction created successfully!");
-      // reset form
-      setHeadline("");
-      setLabels([]);
-      setTechstack([]);
-      setHobbies([]);
-      setPurpose("Hackathon");
-      setTeamSize("Any");
-    } else {
-      alert("Error: " + result.error);
+      if (res.ok) {
+        // Redirect to results page with the new facid
+        window.location.href = `/join/results?facid=${newFacId}`;
+      } else {
+        const result = await res.json();
+        alert("Error: " + result.error);
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Something went wrong!");
     }
-  } catch (err) {
-    console.error(err);
-    alert("Something went wrong!");
-  }
-};
-
+  };
 
   return (
     <main className="flex min-h-screen items-center justify-center bg-[#fffde7] p-6">
