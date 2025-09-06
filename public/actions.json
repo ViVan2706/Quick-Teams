@@ -1,28 +1,1981 @@
 {
-    "actions" : [
-    {
-        "ac_id": "a001",
-        "user_id": "u101",
-        "team_name": "AI Innovators",
-        "team_purpose": "Build AI-powered productivity tools",
-        "description": "We are creating a smart assistant for productivity apps.",
-        "team_size": 5,
-        "skill_req": ["python", "machine learning", "react", "nodejs"],
-        "user_joined": ["u101"],
-        "status": "pending",
-        "created_at": "2025-09-06T10:00:00Z"
-    },
-    {
-        "ac_id": "a002",
-        "user_id": "u102",
-        "team_name": "Web Builders",
-        "team_purpose": "Full-stack web development",
-        "description": "Building a modern platform for student collaboration.",
-        "team_size": 4,
-        "skill_req": ["javascript", "express", "mongodb", "tailwindcss"],
-        "user_joined": ["u102", "u108"],
-        "status": "pending",
-        "created_at": "2025-09-06T10:20:00Z"
-    }
+    "actions": [
+        {
+            "ac_id": "a001",
+            "user_id": "u101",
+            "team_name": "FinTech Pioneers",
+            "team_purpose": "Hackathon",
+            "description": "Developing interactive platforms for online education.",
+            "team_size": 5,
+            "skill_req": [
+                "tensorflow",
+                "docker",
+                "azure",
+                "machine learning",
+                "mongodb"
+            ],
+            "user_joined": [
+                "u233"
+            ],
+            "status": "active",
+            "created_at": "2025-09-06T10:10:00Z"
+        },
+        {
+            "ac_id": "a002",
+            "user_id": "u102",
+            "team_name": "Green Coders",
+            "team_purpose": "College/School Project",
+            "description": "Creating an app to track and reduce carbon footprint.",
+            "team_size": 3,
+            "skill_req": [
+                "mongodb",
+                "docker",
+                "express"
+            ],
+            "user_joined": [
+                "u188"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-06T10:20:00Z"
+        },
+        {
+            "ac_id": "a003",
+            "user_id": "u103",
+            "team_name": "Data Wizards",
+            "team_purpose": "Startup / Entrepreneurship",
+            "description": "Building a modern platform for student collaboration.",
+            "team_size": 6,
+            "skill_req": [
+                "javascript",
+                "machine learning",
+                "sql",
+                "azure",
+                "keras"
+            ],
+            "user_joined": [
+                "u203"
+            ],
+            "status": "pending",
+            "created_at": "2025-09-06T10:30:00Z"
+        },
+        {
+            "ac_id": "a004",
+            "user_id": "u104",
+            "team_name": "HealthTech Hackers",
+            "team_purpose": "Research / Innovation",
+            "description": "Creating an app to track and reduce carbon footprint.",
+            "team_size": 4,
+            "skill_req": [
+                "machine learning",
+                "express",
+                "python",
+                "docker",
+                "mongodb"
+            ],
+            "user_joined": [
+                "u222"
+            ],
+            "status": "pending",
+            "created_at": "2025-09-06T10:40:00Z"
+        },
+        {
+            "ac_id": "a005",
+            "user_id": "u105",
+            "team_name": "AI Innovators",
+            "team_purpose": "Sports / E-sports",
+            "description": "Developing innovative tools for online safety.",
+            "team_size": 7,
+            "skill_req": [
+                "sql",
+                "matplotlib",
+                "docker"
+            ],
+            "user_joined": [
+                "u229",
+                "u104",
+                "u164"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-06T10:50:00Z"
+        },
+        {
+            "ac_id": "a006",
+            "user_id": "u106",
+            "team_name": "Smart City Creators",
+            "team_purpose": "Volunteer / NGO Work",
+            "description": "We are creating a smart assistant for productivity apps.",
+            "team_size": 5,
+            "skill_req": [
+                "java",
+                "nodejs",
+                "tailwindcss"
+            ],
+            "user_joined": [
+                "u245",
+                "u140"
+            ],
+            "status": "pending",
+            "created_at": "2025-09-06T11:00:00Z"
+        },
+        {
+            "ac_id": "a007",
+            "user_id": "u101",
+            "team_name": "Web Builders",
+            "team_purpose": "Creative Collaboration",
+            "description": "Smart farming apps to boost crop yield.",
+            "team_size": 3,
+            "skill_req": [
+                "javascript",
+                "tensorflow",
+                "sql",
+                "flask",
+                "aws"
+            ],
+            "user_joined": [
+                "u116"
+            ],
+            "status": "active",
+            "created_at": "2025-09-06T11:10:00Z"
+        },
+        {
+            "ac_id": "a008",
+            "user_id": "u108",
+            "team_name": "Game Changers",
+            "team_purpose": "Community / Club Activity",
+            "description": "Creating an app to track and reduce carbon footprint.",
+            "team_size": 7,
+            "skill_req": [
+                "tailwindcss",
+                "python",
+                "express",
+                "keras"
+            ],
+            "user_joined": [
+                "u151"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-06T11:20:00Z"
+        },
+        {
+            "ac_id": "a009",
+            "user_id": "u109",
+            "team_name": "AgriTech Alliance",
+            "team_purpose": "Workshop / Training",
+            "description": "Creating an app to track and reduce carbon footprint.",
+            "team_size": 6,
+            "skill_req": [
+                "java",
+                "javascript",
+                "docker"
+            ],
+            "user_joined": [
+                "u117"
+            ],
+            "status": "active",
+            "created_at": "2025-09-06T11:30:00Z"
+        },
+        {
+            "ac_id": "a010",
+            "user_id": "u110",
+            "team_name": "AgriTech Alliance",
+            "team_purpose": "Coding / Algorithm Competition",
+            "description": "Building a modern platform for student collaboration.",
+            "team_size": 5,
+            "skill_req": [
+                "express",
+                "react",
+                "java"
+            ],
+            "user_joined": [
+                "u147"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-06T11:40:00Z"
+        },
+        {
+            "ac_id": "a011",
+            "user_id": "u111",
+            "team_name": "AgriTech Alliance",
+            "team_purpose": "Art / Music Project",
+            "description": "Creating secure and scalable fintech applications.",
+            "team_size": 5,
+            "skill_req": [
+                "tailwindcss",
+                "docker",
+                "tensorflow",
+                "machine learning"
+            ],
+            "user_joined": [
+                "u209",
+                "u266"
+            ],
+            "status": "active",
+            "created_at": "2025-09-06T11:50:00Z"
+        },
+        {
+            "ac_id": "a012",
+            "user_id": "u112",
+            "team_name": "EduTech Enthusiasts",
+            "team_purpose": "Event Organization",
+            "description": "Building immersive AR/VR gaming experiences.",
+            "team_size": 3,
+            "skill_req": [
+                "react",
+                "aws",
+                "java",
+                "c++",
+                "flask"
+            ],
+            "user_joined": [
+                "u155"
+            ],
+            "status": "active",
+            "created_at": "2025-09-06T12:00:00Z"
+        },
+        {
+            "ac_id": "a013",
+            "user_id": "u113",
+            "team_name": "EduTech Enthusiasts",
+            "team_purpose": "Social Campaign / Awareness Drive",
+            "description": "Creating secure and scalable fintech applications.",
+            "team_size": 4,
+            "skill_req": [
+                "docker",
+                "flask",
+                "azure",
+                "aws"
+            ],
+            "user_joined": [
+                "u246"
+            ],
+            "status": "pending",
+            "created_at": "2025-09-06T12:10:00Z"
+        },
+        {
+            "ac_id": "a014",
+            "user_id": "u114",
+            "team_name": "Game Changers",
+            "team_purpose": "Product / Prototype Development",
+            "description": "Designing cloud systems for global businesses.",
+            "team_size": 7,
+            "skill_req": [
+                "flask",
+                "javascript",
+                "express"
+            ],
+            "user_joined": [
+                "u143"
+            ],
+            "status": "pending",
+            "created_at": "2025-09-06T12:20:00Z"
+        },
+        {
+            "ac_id": "a015",
+            "user_id": "u115",
+            "team_name": "Green Coders",
+            "team_purpose": "Hackathon",
+            "description": "Designing cloud systems for global businesses.",
+            "team_size": 3,
+            "skill_req": [
+                "flask",
+                "pandas",
+                "docker",
+                "java"
+            ],
+            "user_joined": [
+                "u138"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-06T12:30:00Z"
+        },
+        {
+            "ac_id": "a016",
+            "user_id": "u116",
+            "team_name": "AI Innovators",
+            "team_purpose": "College/School Project",
+            "description": "Smart farming apps to boost crop yield.",
+            "team_size": 5,
+            "skill_req": [
+                "sql",
+                "javascript",
+                "kubernetes",
+                "java",
+                "machine learning"
+            ],
+            "user_joined": [
+                "u160"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-06T12:40:00Z"
+        },
+        {
+            "ac_id": "a017",
+            "user_id": "u117",
+            "team_name": "Game Changers",
+            "team_purpose": "Startup / Entrepreneurship",
+            "description": "Creating an app to track and reduce carbon footprint.",
+            "team_size": 7,
+            "skill_req": [
+                "machine learning",
+                "aws",
+                "react",
+                "azure"
+            ],
+            "user_joined": [
+                "u145",
+                "u187"
+            ],
+            "status": "active",
+            "created_at": "2025-09-06T12:50:00Z"
+        },
+        {
+            "ac_id": "a018",
+            "user_id": "u118",
+            "team_name": "AgriTech Alliance",
+            "team_purpose": "Research / Innovation",
+            "description": "Creating an app to track and reduce carbon footprint.",
+            "team_size": 6,
+            "skill_req": [
+                "aws",
+                "pandas",
+                "sql"
+            ],
+            "user_joined": [
+                "u199"
+            ],
+            "status": "active",
+            "created_at": "2025-09-06T13:00:00Z"
+        },
+        {
+            "ac_id": "a019",
+            "user_id": "u119",
+            "team_name": "Data Wizards",
+            "team_purpose": "Sports / E-sports",
+            "description": "Creating an app to track and reduce carbon footprint.",
+            "team_size": 4,
+            "skill_req": [
+                "flask",
+                "aws",
+                "matplotlib",
+                "python",
+                "machine learning"
+            ],
+            "user_joined": [
+                "u213"
+            ],
+            "status": "active",
+            "created_at": "2025-09-06T13:10:00Z"
+        },
+        {
+            "ac_id": "a020",
+            "user_id": "u120",
+            "team_name": "AgriTech Alliance",
+            "team_purpose": "Volunteer / NGO Work",
+            "description": "We aim to build dashboards for real-time analytics.",
+            "team_size": 3,
+            "skill_req": [
+                "machine learning",
+                "react",
+                "docker",
+                "keras",
+                "aws"
+            ],
+            "user_joined": [
+                "u159",
+                "u261"
+            ],
+            "status": "active",
+            "created_at": "2025-09-06T13:20:00Z"
+        },
+        {
+            "ac_id": "a021",
+            "user_id": "u121",
+            "team_name": "AI Innovators",
+            "team_purpose": "Creative Collaboration",
+            "description": "Creating an app to track and reduce carbon footprint.",
+            "team_size": 7,
+            "skill_req": [
+                "mongodb",
+                "react",
+                "flask",
+                "kubernetes",
+                "matplotlib"
+            ],
+            "user_joined": [
+                "u150",
+                "u260",
+                "u201"
+            ],
+            "status": "active",
+            "created_at": "2025-09-06T13:30:00Z"
+        },
+        {
+            "ac_id": "a022",
+            "user_id": "u122",
+            "team_name": "Cloud Ninjas",
+            "team_purpose": "Community / Club Activity",
+            "description": "Building a modern platform for student collaboration.",
+            "team_size": 4,
+            "skill_req": [
+                "python",
+                "tensorflow",
+                "javascript"
+            ],
+            "user_joined": [
+                "u139",
+                "u196",
+                "u109"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-06T13:40:00Z"
+        },
+        {
+            "ac_id": "a023",
+            "user_id": "u123",
+            "team_name": "Cloud Ninjas",
+            "team_purpose": "Workshop / Training",
+            "description": "We aim to build dashboards for real-time analytics.",
+            "team_size": 7,
+            "skill_req": [
+                "sql",
+                "express",
+                "machine learning",
+                "flask",
+                "tailwindcss"
+            ],
+            "user_joined": [
+                "u195"
+            ],
+            "status": "active",
+            "created_at": "2025-09-06T13:50:00Z"
+        },
+        {
+            "ac_id": "a024",
+            "user_id": "u124",
+            "team_name": "HealthTech Hackers",
+            "team_purpose": "Coding / Algorithm Competition",
+            "description": "Building a modern platform for student collaboration.",
+            "team_size": 3,
+            "skill_req": [
+                "kubernetes",
+                "aws",
+                "react",
+                "keras"
+            ],
+            "user_joined": [
+                "u254",
+                "u286"
+            ],
+            "status": "pending",
+            "created_at": "2025-09-06T14:00:00Z"
+        },
+        {
+            "ac_id": "a025",
+            "user_id": "u125",
+            "team_name": "Cyber Guardians",
+            "team_purpose": "Art / Music Project",
+            "description": "We are creating a smart assistant for productivity apps.",
+            "team_size": 3,
+            "skill_req": [
+                "tailwindcss",
+                "react",
+                "kubernetes",
+                "tensorflow",
+                "javascript"
+            ],
+            "user_joined": [
+                "u288",
+                "u183",
+                "u155"
+            ],
+            "status": "pending",
+            "created_at": "2025-09-06T14:10:00Z"
+        },
+        {
+            "ac_id": "a026",
+            "user_id": "u126",
+            "team_name": "AgriTech Alliance",
+            "team_purpose": "Event Organization",
+            "description": "IoT-powered smart city infrastructure.",
+            "team_size": 6,
+            "skill_req": [
+                "azure",
+                "java",
+                "mongodb"
+            ],
+            "user_joined": [
+                "u143"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-06T14:20:00Z"
+        },
+        {
+            "ac_id": "a027",
+            "user_id": "u127",
+            "team_name": "FinTech Pioneers",
+            "team_purpose": "Social Campaign / Awareness Drive",
+            "description": "We aim to build dashboards for real-time analytics.",
+            "team_size": 4,
+            "skill_req": [
+                "python",
+                "sql",
+                "pandas",
+                "kubernetes"
+            ],
+            "user_joined": [
+                "u285",
+                "u270"
+            ],
+            "status": "active",
+            "created_at": "2025-09-06T14:30:00Z"
+        },
+        {
+            "ac_id": "a028",
+            "user_id": "u128",
+            "team_name": "FinTech Pioneers",
+            "team_purpose": "Product / Prototype Development",
+            "description": "We are creating a smart assistant for productivity apps.",
+            "team_size": 4,
+            "skill_req": [
+                "mongodb",
+                "tailwindcss",
+                "c++",
+                "java"
+            ],
+            "user_joined": [
+                "u228",
+                "u294",
+                "u208"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-06T14:40:00Z"
+        },
+        {
+            "ac_id": "a029",
+            "user_id": "u129",
+            "team_name": "Cloud Ninjas",
+            "team_purpose": "Hackathon",
+            "description": "IoT-powered smart city infrastructure.",
+            "team_size": 4,
+            "skill_req": [
+                "tailwindcss",
+                "python",
+                "keras"
+            ],
+            "user_joined": [
+                "u242"
+            ],
+            "status": "pending",
+            "created_at": "2025-09-06T14:50:00Z"
+        },
+        {
+            "ac_id": "a030",
+            "user_id": "u130",
+            "team_name": "Data Wizards",
+            "team_purpose": "College/School Project",
+            "description": "IoT-powered smart city infrastructure.",
+            "team_size": 5,
+            "skill_req": [
+                "tensorflow",
+                "c++",
+                "sql",
+                "matplotlib",
+                "nodejs"
+            ],
+            "user_joined": [
+                "u141",
+                "u212",
+                "u207"
+            ],
+            "status": "active",
+            "created_at": "2025-09-06T15:00:00Z"
+        },
+        {
+            "ac_id": "a031",
+            "user_id": "u131",
+            "team_name": "FinTech Pioneers",
+            "team_purpose": "Startup / Entrepreneurship",
+            "description": "Creating secure and scalable fintech applications.",
+            "team_size": 6,
+            "skill_req": [
+                "aws",
+                "docker",
+                "kubernetes",
+                "matplotlib",
+                "mongodb"
+            ],
+            "user_joined": [
+                "u204"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-06T15:10:00Z"
+        },
+        {
+            "ac_id": "a032",
+            "user_id": "u132",
+            "team_name": "Cyber Guardians",
+            "team_purpose": "Research / Innovation",
+            "description": "Smart farming apps to boost crop yield.",
+            "team_size": 5,
+            "skill_req": [
+                "c++",
+                "express",
+                "matplotlib",
+                "sql",
+                "react"
+            ],
+            "user_joined": [
+                "u232",
+                "u231"
+            ],
+            "status": "active",
+            "created_at": "2025-09-06T15:20:00Z"
+        },
+        {
+            "ac_id": "a033",
+            "user_id": "u133",
+            "team_name": "Green Coders",
+            "team_purpose": "Sports / E-sports",
+            "description": "Building a modern platform for student collaboration.",
+            "team_size": 7,
+            "skill_req": [
+                "tailwindcss",
+                "python",
+                "pandas"
+            ],
+            "user_joined": [
+                "u231",
+                "u224"
+            ],
+            "status": "active",
+            "created_at": "2025-09-06T15:30:00Z"
+        },
+        {
+            "ac_id": "a034",
+            "user_id": "u134",
+            "team_name": "Green Coders",
+            "team_purpose": "Volunteer / NGO Work",
+            "description": "IoT-powered smart city infrastructure.",
+            "team_size": 5,
+            "skill_req": [
+                "tensorflow",
+                "matplotlib",
+                "python",
+                "aws"
+            ],
+            "user_joined": [
+                "u178",
+                "u138"
+            ],
+            "status": "active",
+            "created_at": "2025-09-06T15:40:00Z"
+        },
+        {
+            "ac_id": "a035",
+            "user_id": "u135",
+            "team_name": "Game Changers",
+            "team_purpose": "Creative Collaboration",
+            "description": "Designing cloud systems for global businesses.",
+            "team_size": 5,
+            "skill_req": [
+                "javascript",
+                "python",
+                "kubernetes"
+            ],
+            "user_joined": [
+                "u288"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-06T15:50:00Z"
+        },
+        {
+            "ac_id": "a036",
+            "user_id": "u136",
+            "team_name": "AgriTech Alliance",
+            "team_purpose": "Community / Club Activity",
+            "description": "Developing diagnostic tools using deep learning.",
+            "team_size": 3,
+            "skill_req": [
+                "express",
+                "mongodb",
+                "docker",
+                "c++",
+                "tailwindcss"
+            ],
+            "user_joined": [
+                "u239",
+                "u171"
+            ],
+            "status": "active",
+            "created_at": "2025-09-06T16:00:00Z"
+        },
+        {
+            "ac_id": "a037",
+            "user_id": "u137",
+            "team_name": "HealthTech Hackers",
+            "team_purpose": "Workshop / Training",
+            "description": "Developing interactive platforms for online education.",
+            "team_size": 7,
+            "skill_req": [
+                "mongodb",
+                "react",
+                "tensorflow",
+                "kubernetes"
+            ],
+            "user_joined": [
+                "u219"
+            ],
+            "status": "pending",
+            "created_at": "2025-09-06T16:10:00Z"
+        },
+        {
+            "ac_id": "a038",
+            "user_id": "u138",
+            "team_name": "Game Changers",
+            "team_purpose": "Coding / Algorithm Competition",
+            "description": "Smart farming apps to boost crop yield.",
+            "team_size": 6,
+            "skill_req": [
+                "express",
+                "react",
+                "mongodb"
+            ],
+            "user_joined": [
+                "u109",
+                "u289"
+            ],
+            "status": "active",
+            "created_at": "2025-09-06T16:20:00Z"
+        },
+        {
+            "ac_id": "a039",
+            "user_id": "u139",
+            "team_name": "Data Wizards",
+            "team_purpose": "Art / Music Project",
+            "description": "We are creating a smart assistant for productivity apps.",
+            "team_size": 6,
+            "skill_req": [
+                "express",
+                "nodejs",
+                "kubernetes"
+            ],
+            "user_joined": [
+                "u103"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-06T16:30:00Z"
+        },
+        {
+            "ac_id": "a040",
+            "user_id": "u140",
+            "team_name": "Green Coders",
+            "team_purpose": "Event Organization",
+            "description": "Creating secure and scalable fintech applications.",
+            "team_size": 4,
+            "skill_req": [
+                "express",
+                "aws",
+                "mongodb"
+            ],
+            "user_joined": [
+                "u212"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-06T16:40:00Z"
+        },
+        {
+            "ac_id": "a041",
+            "user_id": "u141",
+            "team_name": "Smart City Creators",
+            "team_purpose": "Social Campaign / Awareness Drive",
+            "description": "Developing interactive platforms for online education.",
+            "team_size": 4,
+            "skill_req": [
+                "mongodb",
+                "sql",
+                "tensorflow",
+                "java"
+            ],
+            "user_joined": [
+                "u190",
+                "u119",
+                "u292"
+            ],
+            "status": "active",
+            "created_at": "2025-09-06T16:50:00Z"
+        },
+        {
+            "ac_id": "a042",
+            "user_id": "u142",
+            "team_name": "Game Changers",
+            "team_purpose": "Product / Prototype Development",
+            "description": "We are creating a smart assistant for productivity apps.",
+            "team_size": 5,
+            "skill_req": [
+                "react",
+                "flask",
+                "express",
+                "nodejs",
+                "kubernetes"
+            ],
+            "user_joined": [
+                "u165",
+                "u172"
+            ],
+            "status": "active",
+            "created_at": "2025-09-06T17:00:00Z"
+        },
+        {
+            "ac_id": "a043",
+            "user_id": "u143",
+            "team_name": "Smart City Creators",
+            "team_purpose": "Hackathon",
+            "description": "Building a modern platform for student collaboration.",
+            "team_size": 5,
+            "skill_req": [
+                "docker",
+                "matplotlib",
+                "javascript",
+                "aws",
+                "sql"
+            ],
+            "user_joined": [
+                "u202"
+            ],
+            "status": "pending",
+            "created_at": "2025-09-06T17:10:00Z"
+        },
+        {
+            "ac_id": "a044",
+            "user_id": "u144",
+            "team_name": "Green Coders",
+            "team_purpose": "College/School Project",
+            "description": "Creating an app to track and reduce carbon footprint.",
+            "team_size": 3,
+            "skill_req": [
+                "react",
+                "python",
+                "machine learning",
+                "tailwindcss"
+            ],
+            "user_joined": [
+                "u176",
+                "u275"
+            ],
+            "status": "pending",
+            "created_at": "2025-09-06T17:20:00Z"
+        },
+        {
+            "ac_id": "a045",
+            "user_id": "u145",
+            "team_name": "Cyber Guardians",
+            "team_purpose": "Startup / Entrepreneurship",
+            "description": "Building a modern platform for student collaboration.",
+            "team_size": 4,
+            "skill_req": [
+                "tensorflow",
+                "aws",
+                "javascript"
+            ],
+            "user_joined": [
+                "u235"
+            ],
+            "status": "active",
+            "created_at": "2025-09-06T17:30:00Z"
+        },
+        {
+            "ac_id": "a046",
+            "user_id": "u146",
+            "team_name": "Green Coders",
+            "team_purpose": "Research / Innovation",
+            "description": "Designing cloud systems for global businesses.",
+            "team_size": 5,
+            "skill_req": [
+                "java",
+                "kubernetes",
+                "nodejs",
+                "azure",
+                "express"
+            ],
+            "user_joined": [
+                "u161",
+                "u195",
+                "u225"
+            ],
+            "status": "active",
+            "created_at": "2025-09-06T17:40:00Z"
+        },
+        {
+            "ac_id": "a047",
+            "user_id": "u147",
+            "team_name": "Cloud Ninjas",
+            "team_purpose": "Sports / E-sports",
+            "description": "Developing diagnostic tools using deep learning.",
+            "team_size": 6,
+            "skill_req": [
+                "tailwindcss",
+                "sql",
+                "kubernetes",
+                "pandas",
+                "python"
+            ],
+            "user_joined": [
+                "u177"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-06T17:50:00Z"
+        },
+        {
+            "ac_id": "a048",
+            "user_id": "u148",
+            "team_name": "Smart City Creators",
+            "team_purpose": "Volunteer / NGO Work",
+            "description": "We aim to build dashboards for real-time analytics.",
+            "team_size": 6,
+            "skill_req": [
+                "tensorflow",
+                "docker",
+                "nodejs"
+            ],
+            "user_joined": [
+                "u140",
+                "u148"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-06T18:00:00Z"
+        },
+        {
+            "ac_id": "a049",
+            "user_id": "u149",
+            "team_name": "Cyber Guardians",
+            "team_purpose": "Creative Collaboration",
+            "description": "Smart farming apps to boost crop yield.",
+            "team_size": 4,
+            "skill_req": [
+                "tensorflow",
+                "react",
+                "c++",
+                "matplotlib"
+            ],
+            "user_joined": [
+                "u213",
+                "u240"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-06T18:10:00Z"
+        },
+        {
+            "ac_id": "a050",
+            "user_id": "u150",
+            "team_name": "Web Builders",
+            "team_purpose": "Community / Club Activity",
+            "description": "Developing innovative tools for online safety.",
+            "team_size": 6,
+            "skill_req": [
+                "docker",
+                "tensorflow",
+                "express",
+                "nodejs",
+                "python"
+            ],
+            "user_joined": [
+                "u104",
+                "u297"
+            ],
+            "status": "pending",
+            "created_at": "2025-09-06T18:20:00Z"
+        },
+        {
+            "ac_id": "a051",
+            "user_id": "u151",
+            "team_name": "Game Changers",
+            "team_purpose": "Workshop / Training",
+            "description": "Designing cloud systems for global businesses.",
+            "team_size": 5,
+            "skill_req": [
+                "javascript",
+                "keras",
+                "sql"
+            ],
+            "user_joined": [
+                "u272"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-06T18:30:00Z"
+        },
+        {
+            "ac_id": "a052",
+            "user_id": "u152",
+            "team_name": "Smart City Creators",
+            "team_purpose": "Coding / Algorithm Competition",
+            "description": "Creating secure and scalable fintech applications.",
+            "team_size": 6,
+            "skill_req": [
+                "java",
+                "machine learning",
+                "tensorflow",
+                "mongodb",
+                "express"
+            ],
+            "user_joined": [
+                "u118"
+            ],
+            "status": "active",
+            "created_at": "2025-09-06T18:40:00Z"
+        },
+        {
+            "ac_id": "a053",
+            "user_id": "u153",
+            "team_name": "FinTech Pioneers",
+            "team_purpose": "Art / Music Project",
+            "description": "Creating secure and scalable fintech applications.",
+            "team_size": 3,
+            "skill_req": [
+                "aws",
+                "flask",
+                "tensorflow"
+            ],
+            "user_joined": [
+                "u129",
+                "u105",
+                "u295"
+            ],
+            "status": "pending",
+            "created_at": "2025-09-06T18:50:00Z"
+        },
+        {
+            "ac_id": "a054",
+            "user_id": "u154",
+            "team_name": "HealthTech Hackers",
+            "team_purpose": "Event Organization",
+            "description": "Creating an app to track and reduce carbon footprint.",
+            "team_size": 6,
+            "skill_req": [
+                "docker",
+                "java",
+                "tensorflow"
+            ],
+            "user_joined": [
+                "u140",
+                "u277"
+            ],
+            "status": "pending",
+            "created_at": "2025-09-06T19:00:00Z"
+        },
+        {
+            "ac_id": "a055",
+            "user_id": "u155",
+            "team_name": "FinTech Pioneers",
+            "team_purpose": "Social Campaign / Awareness Drive",
+            "description": "Building immersive AR/VR gaming experiences.",
+            "team_size": 3,
+            "skill_req": [
+                "mongodb",
+                "react",
+                "azure",
+                "keras"
+            ],
+            "user_joined": [
+                "u238",
+                "u165"
+            ],
+            "status": "pending",
+            "created_at": "2025-09-06T19:10:00Z"
+        },
+        {
+            "ac_id": "a056",
+            "user_id": "u156",
+            "team_name": "Green Coders",
+            "team_purpose": "Product / Prototype Development",
+            "description": "Designing cloud systems for global businesses.",
+            "team_size": 5,
+            "skill_req": [
+                "express",
+                "keras",
+                "pandas",
+                "azure",
+                "python"
+            ],
+            "user_joined": [
+                "u103"
+            ],
+            "status": "pending",
+            "created_at": "2025-09-06T19:20:00Z"
+        },
+        {
+            "ac_id": "a057",
+            "user_id": "u157",
+            "team_name": "Cyber Guardians",
+            "team_purpose": "Hackathon",
+            "description": "We aim to build dashboards for real-time analytics.",
+            "team_size": 3,
+            "skill_req": [
+                "matplotlib",
+                "javascript",
+                "kubernetes",
+                "python",
+                "aws"
+            ],
+            "user_joined": [
+                "u183"
+            ],
+            "status": "pending",
+            "created_at": "2025-09-06T19:30:00Z"
+        },
+        {
+            "ac_id": "a058",
+            "user_id": "u158",
+            "team_name": "Green Coders",
+            "team_purpose": "College/School Project",
+            "description": "Developing interactive platforms for online education.",
+            "team_size": 3,
+            "skill_req": [
+                "javascript",
+                "react",
+                "machine learning",
+                "pandas",
+                "azure"
+            ],
+            "user_joined": [
+                "u148",
+                "u105",
+                "u278"
+            ],
+            "status": "active",
+            "created_at": "2025-09-06T19:40:00Z"
+        },
+        {
+            "ac_id": "a059",
+            "user_id": "u159",
+            "team_name": "Game Changers",
+            "team_purpose": "Startup / Entrepreneurship",
+            "description": "Designing cloud systems for global businesses.",
+            "team_size": 6,
+            "skill_req": [
+                "azure",
+                "aws",
+                "pandas",
+                "flask"
+            ],
+            "user_joined": [
+                "u206",
+                "u297"
+            ],
+            "status": "active",
+            "created_at": "2025-09-06T19:50:00Z"
+        },
+        {
+            "ac_id": "a060",
+            "user_id": "u160",
+            "team_name": "HealthTech Hackers",
+            "team_purpose": "Research / Innovation",
+            "description": "Building a modern platform for student collaboration.",
+            "team_size": 4,
+            "skill_req": [
+                "python",
+                "react",
+                "tensorflow"
+            ],
+            "user_joined": [
+                "u142",
+                "u181",
+                "u143"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-06T20:00:00Z"
+        },
+        {
+            "ac_id": "a061",
+            "user_id": "u161",
+            "team_name": "Green Coders",
+            "team_purpose": "Sports / E-sports",
+            "description": "We aim to build dashboards for real-time analytics.",
+            "team_size": 5,
+            "skill_req": [
+                "c++",
+                "sql",
+                "mongodb",
+                "azure"
+            ],
+            "user_joined": [
+                "u187",
+                "u266",
+                "u233"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-06T20:10:00Z"
+        },
+        {
+            "ac_id": "a062",
+            "user_id": "u162",
+            "team_name": "Game Changers",
+            "team_purpose": "Volunteer / NGO Work",
+            "description": "Developing innovative tools for online safety.",
+            "team_size": 7,
+            "skill_req": [
+                "tailwindcss",
+                "java",
+                "flask",
+                "docker"
+            ],
+            "user_joined": [
+                "u173"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-06T20:20:00Z"
+        },
+        {
+            "ac_id": "a063",
+            "user_id": "u163",
+            "team_name": "Smart City Creators",
+            "team_purpose": "Creative Collaboration",
+            "description": "We aim to build dashboards for real-time analytics.",
+            "team_size": 4,
+            "skill_req": [
+                "pandas",
+                "mongodb",
+                "c++"
+            ],
+            "user_joined": [
+                "u299",
+                "u198",
+                "u180"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-06T20:30:00Z"
+        },
+        {
+            "ac_id": "a064",
+            "user_id": "u164",
+            "team_name": "AgriTech Alliance",
+            "team_purpose": "Community / Club Activity",
+            "description": "Building immersive AR/VR gaming experiences.",
+            "team_size": 4,
+            "skill_req": [
+                "kubernetes",
+                "sql",
+                "javascript",
+                "docker",
+                "keras"
+            ],
+            "user_joined": [
+                "u162"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-06T20:40:00Z"
+        },
+        {
+            "ac_id": "a065",
+            "user_id": "u165",
+            "team_name": "Cloud Ninjas",
+            "team_purpose": "Workshop / Training",
+            "description": "Smart farming apps to boost crop yield.",
+            "team_size": 5,
+            "skill_req": [
+                "tensorflow",
+                "react",
+                "c++",
+                "matplotlib"
+            ],
+            "user_joined": [
+                "u226"
+            ],
+            "status": "pending",
+            "created_at": "2025-09-06T20:50:00Z"
+        },
+        {
+            "ac_id": "a066",
+            "user_id": "u166",
+            "team_name": "AI Innovators",
+            "team_purpose": "Coding / Algorithm Competition",
+            "description": "Designing cloud systems for global businesses.",
+            "team_size": 5,
+            "skill_req": [
+                "keras",
+                "azure",
+                "matplotlib"
+            ],
+            "user_joined": [
+                "u241"
+            ],
+            "status": "pending",
+            "created_at": "2025-09-06T21:00:00Z"
+        },
+        {
+            "ac_id": "a067",
+            "user_id": "u167",
+            "team_name": "Cyber Guardians",
+            "team_purpose": "Art / Music Project",
+            "description": "Creating an app to track and reduce carbon footprint.",
+            "team_size": 5,
+            "skill_req": [
+                "react",
+                "flask",
+                "keras"
+            ],
+            "user_joined": [
+                "u277"
+            ],
+            "status": "pending",
+            "created_at": "2025-09-06T21:10:00Z"
+        },
+        {
+            "ac_id": "a068",
+            "user_id": "u168",
+            "team_name": "Game Changers",
+            "team_purpose": "Event Organization",
+            "description": "Developing innovative tools for online safety.",
+            "team_size": 4,
+            "skill_req": [
+                "javascript",
+                "machine learning",
+                "mongodb",
+                "c++",
+                "express"
+            ],
+            "user_joined": [
+                "u210"
+            ],
+            "status": "active",
+            "created_at": "2025-09-06T21:20:00Z"
+        },
+        {
+            "ac_id": "a069",
+            "user_id": "u169",
+            "team_name": "Green Coders",
+            "team_purpose": "Social Campaign / Awareness Drive",
+            "description": "Developing diagnostic tools using deep learning.",
+            "team_size": 7,
+            "skill_req": [
+                "express",
+                "docker",
+                "kubernetes",
+                "tailwindcss",
+                "azure"
+            ],
+            "user_joined": [
+                "u146",
+                "u151",
+                "u283"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-06T21:30:00Z"
+        },
+        {
+            "ac_id": "a070",
+            "user_id": "u170",
+            "team_name": "Web Builders",
+            "team_purpose": "Product / Prototype Development",
+            "description": "IoT-powered smart city infrastructure.",
+            "team_size": 6,
+            "skill_req": [
+                "keras",
+                "pandas",
+                "mongodb",
+                "c++",
+                "matplotlib"
+            ],
+            "user_joined": [
+                "u104"
+            ],
+            "status": "pending",
+            "created_at": "2025-09-06T21:40:00Z"
+        },
+        {
+            "ac_id": "a071",
+            "user_id": "u171",
+            "team_name": "Web Builders",
+            "team_purpose": "Hackathon",
+            "description": "Developing interactive platforms for online education.",
+            "team_size": 6,
+            "skill_req": [
+                "sql",
+                "java",
+                "azure"
+            ],
+            "user_joined": [
+                "u246",
+                "u115"
+            ],
+            "status": "active",
+            "created_at": "2025-09-06T21:50:00Z"
+        },
+        {
+            "ac_id": "a072",
+            "user_id": "u172",
+            "team_name": "EduTech Enthusiasts",
+            "team_purpose": "College/School Project",
+            "description": "Developing diagnostic tools using deep learning.",
+            "team_size": 5,
+            "skill_req": [
+                "flask",
+                "machine learning",
+                "javascript"
+            ],
+            "user_joined": [
+                "u181",
+                "u101",
+                "u290"
+            ],
+            "status": "pending",
+            "created_at": "2025-09-06T22:00:00Z"
+        },
+        {
+            "ac_id": "a073",
+            "user_id": "u173",
+            "team_name": "Cyber Guardians",
+            "team_purpose": "Startup / Entrepreneurship",
+            "description": "IoT-powered smart city infrastructure.",
+            "team_size": 6,
+            "skill_req": [
+                "python",
+                "kubernetes",
+                "tailwindcss",
+                "pandas"
+            ],
+            "user_joined": [
+                "u190",
+                "u171"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-06T22:10:00Z"
+        },
+        {
+            "ac_id": "a074",
+            "user_id": "u174",
+            "team_name": "HealthTech Hackers",
+            "team_purpose": "Research / Innovation",
+            "description": "IoT-powered smart city infrastructure.",
+            "team_size": 3,
+            "skill_req": [
+                "tensorflow",
+                "azure",
+                "c++",
+                "machine learning"
+            ],
+            "user_joined": [
+                "u212"
+            ],
+            "status": "active",
+            "created_at": "2025-09-06T22:20:00Z"
+        },
+        {
+            "ac_id": "a075",
+            "user_id": "u175",
+            "team_name": "FinTech Pioneers",
+            "team_purpose": "Sports / E-sports",
+            "description": "Developing innovative tools for online safety.",
+            "team_size": 6,
+            "skill_req": [
+                "java",
+                "aws",
+                "matplotlib"
+            ],
+            "user_joined": [
+                "u227",
+                "u114"
+            ],
+            "status": "active",
+            "created_at": "2025-09-06T22:30:00Z"
+        },
+        {
+            "ac_id": "a076",
+            "user_id": "u176",
+            "team_name": "Game Changers",
+            "team_purpose": "Volunteer / NGO Work",
+            "description": "Smart farming apps to boost crop yield.",
+            "team_size": 5,
+            "skill_req": [
+                "python",
+                "express",
+                "java",
+                "c++",
+                "matplotlib"
+            ],
+            "user_joined": [
+                "u247",
+                "u292"
+            ],
+            "status": "pending",
+            "created_at": "2025-09-06T22:40:00Z"
+        },
+        {
+            "ac_id": "a077",
+            "user_id": "u177",
+            "team_name": "Green Coders",
+            "team_purpose": "Creative Collaboration",
+            "description": "Creating secure and scalable fintech applications.",
+            "team_size": 6,
+            "skill_req": [
+                "react",
+                "pandas",
+                "nodejs",
+                "matplotlib"
+            ],
+            "user_joined": [
+                "u145"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-06T22:50:00Z"
+        },
+        {
+            "ac_id": "a078",
+            "user_id": "u178",
+            "team_name": "Smart City Creators",
+            "team_purpose": "Community / Club Activity",
+            "description": "We are creating a smart assistant for productivity apps.",
+            "team_size": 6,
+            "skill_req": [
+                "javascript",
+                "tailwindcss",
+                "kubernetes",
+                "sql",
+                "mongodb"
+            ],
+            "user_joined": [
+                "u196",
+                "u174",
+                "u208"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-06T23:00:00Z"
+        },
+        {
+            "ac_id": "a079",
+            "user_id": "u179",
+            "team_name": "Smart City Creators",
+            "team_purpose": "Workshop / Training",
+            "description": "Smart farming apps to boost crop yield.",
+            "team_size": 6,
+            "skill_req": [
+                "flask",
+                "machine learning",
+                "tensorflow",
+                "sql",
+                "c++"
+            ],
+            "user_joined": [
+                "u268",
+                "u171",
+                "u146"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-06T23:10:00Z"
+        },
+        {
+            "ac_id": "a080",
+            "user_id": "u180",
+            "team_name": "Game Changers",
+            "team_purpose": "Coding / Algorithm Competition",
+            "description": "Creating an app to track and reduce carbon footprint.",
+            "team_size": 5,
+            "skill_req": [
+                "c++",
+                "pandas",
+                "machine learning",
+                "express",
+                "python"
+            ],
+            "user_joined": [
+                "u200"
+            ],
+            "status": "pending",
+            "created_at": "2025-09-06T23:20:00Z"
+        },
+        {
+            "ac_id": "a081",
+            "user_id": "u181",
+            "team_name": "Smart City Creators",
+            "team_purpose": "Art / Music Project",
+            "description": "Building a modern platform for student collaboration.",
+            "team_size": 6,
+            "skill_req": [
+                "python",
+                "kubernetes",
+                "javascript"
+            ],
+            "user_joined": [
+                "u272",
+                "u227",
+                "u280"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-06T23:30:00Z"
+        },
+        {
+            "ac_id": "a082",
+            "user_id": "u182",
+            "team_name": "Web Builders",
+            "team_purpose": "Event Organization",
+            "description": "Developing innovative tools for online safety.",
+            "team_size": 5,
+            "skill_req": [
+                "flask",
+                "sql",
+                "tailwindcss",
+                "c++",
+                "java"
+            ],
+            "user_joined": [
+                "u282"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-06T23:40:00Z"
+        },
+        {
+            "ac_id": "a083",
+            "user_id": "u183",
+            "team_name": "Cloud Ninjas",
+            "team_purpose": "Social Campaign / Awareness Drive",
+            "description": "Designing cloud systems for global businesses.",
+            "team_size": 7,
+            "skill_req": [
+                "flask",
+                "pandas",
+                "azure",
+                "docker",
+                "sql"
+            ],
+            "user_joined": [
+                "u269"
+            ],
+            "status": "pending",
+            "created_at": "2025-09-06T23:50:00Z"
+        },
+        {
+            "ac_id": "a084",
+            "user_id": "u184",
+            "team_name": "Data Wizards",
+            "team_purpose": "Product / Prototype Development",
+            "description": "Creating an app to track and reduce carbon footprint.",
+            "team_size": 6,
+            "skill_req": [
+                "javascript",
+                "react",
+                "pandas"
+            ],
+            "user_joined": [
+                "u222",
+                "u272"
+            ],
+            "status": "pending",
+            "created_at": "2025-09-07T00:00:00Z"
+        },
+        {
+            "ac_id": "a085",
+            "user_id": "u185",
+            "team_name": "FinTech Pioneers",
+            "team_purpose": "Hackathon",
+            "description": "We are creating a smart assistant for productivity apps.",
+            "team_size": 5,
+            "skill_req": [
+                "docker",
+                "javascript",
+                "react",
+                "tailwindcss"
+            ],
+            "user_joined": [
+                "u221",
+                "u254",
+                "u277"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-07T00:10:00Z"
+        },
+        {
+            "ac_id": "a086",
+            "user_id": "u186",
+            "team_name": "HealthTech Hackers",
+            "team_purpose": "College/School Project",
+            "description": "Designing cloud systems for global businesses.",
+            "team_size": 5,
+            "skill_req": [
+                "python",
+                "mongodb",
+                "sql"
+            ],
+            "user_joined": [
+                "u156"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-07T00:20:00Z"
+        },
+        {
+            "ac_id": "a087",
+            "user_id": "u187",
+            "team_name": "Cloud Ninjas",
+            "team_purpose": "Startup / Entrepreneurship",
+            "description": "Building immersive AR/VR gaming experiences.",
+            "team_size": 4,
+            "skill_req": [
+                "javascript",
+                "java",
+                "keras"
+            ],
+            "user_joined": [
+                "u172"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-07T00:30:00Z"
+        },
+        {
+            "ac_id": "a088",
+            "user_id": "u188",
+            "team_name": "Data Wizards",
+            "team_purpose": "Research / Innovation",
+            "description": "IoT-powered smart city infrastructure.",
+            "team_size": 7,
+            "skill_req": [
+                "matplotlib",
+                "python",
+                "machine learning",
+                "docker"
+            ],
+            "user_joined": [
+                "u289",
+                "u155"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-07T00:40:00Z"
+        },
+        {
+            "ac_id": "a089",
+            "user_id": "u189",
+            "team_name": "Cloud Ninjas",
+            "team_purpose": "Sports / E-sports",
+            "description": "Smart farming apps to boost crop yield.",
+            "team_size": 5,
+            "skill_req": [
+                "matplotlib",
+                "machine learning",
+                "kubernetes"
+            ],
+            "user_joined": [
+                "u133",
+                "u192",
+                "u158"
+            ],
+            "status": "pending",
+            "created_at": "2025-09-07T00:50:00Z"
+        },
+        {
+            "ac_id": "a090",
+            "user_id": "u190",
+            "team_name": "EduTech Enthusiasts",
+            "team_purpose": "Volunteer / NGO Work",
+            "description": "Creating secure and scalable fintech applications.",
+            "team_size": 7,
+            "skill_req": [
+                "java",
+                "aws",
+                "matplotlib"
+            ],
+            "user_joined": [
+                "u278",
+                "u238",
+                "u208"
+            ],
+            "status": "pending",
+            "created_at": "2025-09-07T01:00:00Z"
+        },
+        {
+            "ac_id": "a091",
+            "user_id": "u191",
+            "team_name": "Cloud Ninjas",
+            "team_purpose": "Creative Collaboration",
+            "description": "Smart farming apps to boost crop yield.",
+            "team_size": 6,
+            "skill_req": [
+                "pandas",
+                "aws",
+                "matplotlib",
+                "javascript",
+                "react"
+            ],
+            "user_joined": [
+                "u226"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-07T01:10:00Z"
+        },
+        {
+            "ac_id": "a092",
+            "user_id": "u192",
+            "team_name": "FinTech Pioneers",
+            "team_purpose": "Community / Club Activity",
+            "description": "IoT-powered smart city infrastructure.",
+            "team_size": 3,
+            "skill_req": [
+                "nodejs",
+                "mongodb",
+                "python"
+            ],
+            "user_joined": [
+                "u297"
+            ],
+            "status": "pending",
+            "created_at": "2025-09-07T01:20:00Z"
+        },
+        {
+            "ac_id": "a093",
+            "user_id": "u193",
+            "team_name": "Green Coders",
+            "team_purpose": "Workshop / Training",
+            "description": "Building immersive AR/VR gaming experiences.",
+            "team_size": 4,
+            "skill_req": [
+                "react",
+                "pandas",
+                "nodejs",
+                "python"
+            ],
+            "user_joined": [
+                "u258"
+            ],
+            "status": "pending",
+            "created_at": "2025-09-07T01:30:00Z"
+        },
+        {
+            "ac_id": "a094",
+            "user_id": "u194",
+            "team_name": "Smart City Creators",
+            "team_purpose": "Coding / Algorithm Competition",
+            "description": "Smart farming apps to boost crop yield.",
+            "team_size": 3,
+            "skill_req": [
+                "kubernetes",
+                "machine learning",
+                "sql"
+            ],
+            "user_joined": [
+                "u281",
+                "u156",
+                "u276"
+            ],
+            "status": "active",
+            "created_at": "2025-09-07T01:40:00Z"
+        },
+        {
+            "ac_id": "a095",
+            "user_id": "u195",
+            "team_name": "FinTech Pioneers",
+            "team_purpose": "Art / Music Project",
+            "description": "Building a modern platform for student collaboration.",
+            "team_size": 5,
+            "skill_req": [
+                "nodejs",
+                "pandas",
+                "express"
+            ],
+            "user_joined": [
+                "u212",
+                "u186",
+                "u194"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-07T01:50:00Z"
+        },
+        {
+            "ac_id": "a096",
+            "user_id": "u196",
+            "team_name": "Data Wizards",
+            "team_purpose": "Event Organization",
+            "description": "Developing interactive platforms for online education.",
+            "team_size": 3,
+            "skill_req": [
+                "docker",
+                "tailwindcss",
+                "keras"
+            ],
+            "user_joined": [
+                "u290"
+            ],
+            "status": "active",
+            "created_at": "2025-09-07T02:00:00Z"
+        },
+        {
+            "ac_id": "a097",
+            "user_id": "u197",
+            "team_name": "Web Builders",
+            "team_purpose": "Social Campaign / Awareness Drive",
+            "description": "IoT-powered smart city infrastructure.",
+            "team_size": 3,
+            "skill_req": [
+                "javascript",
+                "kubernetes",
+                "java",
+                "machine learning",
+                "nodejs"
+            ],
+            "user_joined": [
+                "u187",
+                "u286",
+                "u266"
+            ],
+            "status": "completed",
+            "created_at": "2025-09-07T02:10:00Z"
+        },
+        {
+            "ac_id": "a098",
+            "user_id": "u198",
+            "team_name": "FinTech Pioneers",
+            "team_purpose": "Product / Prototype Development",
+            "description": "Developing interactive platforms for online education.",
+            "team_size": 5,
+            "skill_req": [
+                "mongodb",
+                "react",
+                "flask"
+            ],
+            "user_joined": [
+                "u288",
+                "u246",
+                "u224"
+            ],
+            "status": "pending",
+            "created_at": "2025-09-07T02:20:00Z"
+        },
+        {
+            "ac_id": "a099",
+            "user_id": "u199",
+            "team_name": "Data Wizards",
+            "team_purpose": "Hackathon",
+            "description": "IoT-powered smart city infrastructure.",
+            "team_size": 3,
+            "skill_req": [
+                "tensorflow",
+                "react",
+                "docker",
+                "mongodb"
+            ],
+            "user_joined": [
+                "u275",
+                "u191",
+                "u258"
+            ],
+            "status": "active",
+            "created_at": "2025-09-07T02:30:00Z"
+        },
+        {
+            "ac_id": "a100",
+            "user_id": "u200",
+            "team_name": "Green Coders",
+            "team_purpose": "College/School Project",
+            "description": "Developing interactive platforms for online education.",
+            "team_size": 5,
+            "skill_req": [
+                "keras",
+                "mongodb",
+                "react",
+                "sql"
+            ],
+            "user_joined": [
+                "u139",
+                "u101",
+                "u206"
+            ],
+            "status": "pending",
+            "created_at": "2025-09-07T02:40:00Z"
+        }
     ]
 }
