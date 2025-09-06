@@ -1,0 +1,45 @@
+{
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "bio": "Full-stack dev with 3+ years of experience.",
+  "age": "24",
+  "location": "San Francisco, CA",
+  "education": "Computer Science, Stanford",
+  "experience": "Senior Dev at TechCorp",
+  "skills": [
+    "React",
+    "TypeScript",
+    "Node.js"
+  ],
+  "interests": [
+    "Web Dev",
+    "AI/ML"
+  ],
+  "stats": [
+    {
+      "label": "Teams Joined",
+      "value": "12",
+      "icon": "Users"
+    },
+    {
+      "label": "Projects Completed",
+      "value": "8",
+      "icon": "Target"
+    },
+    {
+      "label": "Success Rate",
+      "value": "96%",
+      "icon": "Award"
+    },
+    {
+      "label": "Profile Views",
+      "value": "234",
+      "icon": "Globe"
+    }
+  ],
+  "labels": [
+    "Supporter",
+    "Researcher",
+    "Detail-oriented"
+  ]
+}

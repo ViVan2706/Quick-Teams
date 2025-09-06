@@ -14,7 +14,7 @@ export default function Page() {
   const [teamSize, setTeamSize] = useState("Any");
 
   useEffect(() => {
-    fetch("/users.json")
+    fetch("/userdata.json")
       .then((res) => res.json())
       .then((data) => {
         setUserData(data);
@@ -115,39 +115,32 @@ export default function Page() {
           />
         </div>
 
-        {/* Labels */}
         <div>
-          <label className="block text-gray-700 mb-1">Labels</label>
-          <div className="flex flex-wrap gap-2 mb-2">
-            {labels.map((label, i) => (
-              <span
-                key={i}
-                className="px-3 py-1 text-sm bg-[#FFFBDE] text-[#096B68] rounded-full flex items-center gap-1 "
-              >
-                {label}
-                <button
-                  type="button"
-                  onClick={() => handleRemoveItem(setLabels, labels, i)}
-                  className="text-red-500 font-bold"
-                >
-                  ×
-                </button>
-              </span>
-            ))}
-          </div>
-          <input
-            type="text"
-            placeholder="Add a label..."
-            onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                e.preventDefault();
-                handleAddItem(setLabels, labels, e.target.value);
-                e.target.value = "";
-              }
-            }}
-            className="w-full border border-gray-300 rounded-md p-2 bg-[#FFFBDE]"
-          />
-        </div>
+  <label className="block text-gray-700 mb-1">Labels</label>
+  <div className="flex flex-wrap gap-2 mb-2">
+    {labels.map((label, i) => (
+      <label
+        key={i}
+        className="px-3 py-1 bg-[#FFFBDE] text-[#096B68] rounded-full cursor-pointer flex items-center gap-1"
+      >
+        <input
+          type="checkbox"
+          value={label}
+          checked={labels.includes(label)}
+          onChange={(e) => {
+            if (e.target.checked) {
+              setLabels((prev) => [...prev, label]);
+            } else {
+              setLabels((prev) => prev.filter((l) => l !== label));
+            }
+          }}
+          className="hidden"
+        />
+        {label}
+      </label>
+    ))}
+  </div>
+</div>
 
         {/* Purpose */}
         <div>
